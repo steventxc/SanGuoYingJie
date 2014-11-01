@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="28" height="16" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="level1" tilewidth="32" tileheight="32">
+  <image source="level1.png" width="896" height="512"/>
+ </tileset>
+ <tileset firstgid="449" name="guanyu_move3" tilewidth="32" tileheight="32">
+  <image source="guanyu_move3.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="450" name="buildings" tilewidth="32" tileheight="32">
+  <image source="buildings1.png" width="64" height="96"/>
+ </tileset>
+ <layer name="background" width="28" height="16">
+  <data encoding="base64" compression="zlib">
+   eJxV0GXs1lUABeD3pZH40410I93d3R0i3d3d3d3d3d0Y5AxQhhIKSqqTUKfSPI7fxvjw7NzdD+fs3nAoFIpEZKIQlWhEJwYx+YBYxCYOcYkgHvFJQEISkZgkJCUZyUlBSlKRmg9JQ1rSkZ4MZCQTmclCVrKRnRzk5CNykZs85CUf+SlAQQpRmCIUpRjFKUFJSlGaMpSlHOWpQEUqUZkqVKUa1alBTWpRmzrUpR71aUBDGtGYJjSlGc35mBZ8Qkta0Zo2tKUd7elARzrRmS50pRvd6UFPetGbPvSlH/0ZwEAGMZghDGUYwxnBSEYxmjGMZRzjmcBEJjGZKUxlGtOZwUxmMZs5zGUe81nAQhaxmCUsZRnLWcFKVrGaNaxlHevZwEY2sZktbGUb29nBTnaxmz3sZV+QBzjIIZ5whKMc4zgnOMkpPuUzPucLTnOGs5zjPBeC3i/5iq/5hotc4lu+43Kwd4Xv+YGrXOM6N/iRn7jJLX7mF25zh7vc4z4P+JXf+J2H/BHkIx4He3/yF3+TNRwK/SP/5T+e8oznvOAlr3hNpPD7ohCVaIH/u2IG51jEJg5xiQi/7U0QficRiUlCUpKRnBSkJBWpg600pCUd6ckQ3GciM1mC/WxkJwc5g51c5CYPeclHfgpQkEIUpghFKUZxSlCSUpSmDGUpR3kqUJFKVKYKValGdWpQk1rUpg51qUd9GtCQRjSmCU1pRvPgfS2Cf2spW9GaNrSlHe3pQEc60ZkudKUb3elBT3rRmz70pR/9GcBABjGYIQxlGMMZwUhGMZoxjGUc45nARCYxmSlMZRrTmcFMZjGbOcxlHvNZwEIWsZglLGUZy1nBSlaxmjWsZR3r2cBGNrGZLWxlG9vZwU52sZs97GUf+znAQQ5xmCMc5RjHOcFJTvEGX+7JAA==
+  </data>
+ </layer>
+ <layer name="buildings" width="28" height="16">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2D4gEOMtDH3GI3MJQUcHQRuQAZHqOye44PMf7QC1A63UUA+AAAEbASj
+  </data>
+ </layer>
+ <objectgroup name="buildings">
+  <object gid="350" x="608" y="320"/>
+  <object gid="350" x="416" y="416"/>
+  <object gid="181" x="384" y="224"/>
+  <object gid="203" x="192" y="256"/>
+  <object gid="453" x="352" y="288"/>
+ </objectgroup>
+ <objectgroup name="roles">
+  <object name="zhangfei" gid="273" x="640" y="320"/>
+  <object gid="275" x="704" y="320"/>
+  <object gid="257" x="128" y="320"/>
+  <object gid="257" x="192" y="320"/>
+  <object gid="292" x="352" y="352"/>
+  <object gid="348" x="352" y="416"/>
+  <object gid="286" x="160" y="352"/>
+  <object gid="256" x="96" y="320"/>
+  <object gid="213" x="512" y="256"/>
+  <object gid="185" x="512" y="224"/>
+  <object name="guanyu" gid="449" x="640" y="352">
+   <properties>
+    <property name="direction" value="left"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>
