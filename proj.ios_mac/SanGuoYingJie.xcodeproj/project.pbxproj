@@ -62,6 +62,10 @@
 		50EF629917ECD46A001EB2F8 /* Icon-100.png in Resources */ = {isa = PBXBuildFile; fileRef = 50EF629517ECD46A001EB2F8 /* Icon-100.png */; };
 		50EF62A217ECD613001EB2F8 /* Icon-29.png in Resources */ = {isa = PBXBuildFile; fileRef = 50EF62A017ECD613001EB2F8 /* Icon-29.png */; };
 		50EF62A317ECD613001EB2F8 /* Icon-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 50EF62A117ECD613001EB2F8 /* Icon-50.png */; };
+		B0346AA61A0628CD00BC98BE /* LevelScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0346AA41A0628CD00BC98BE /* LevelScene.cpp */; };
+		B0346AA71A0628CD00BC98BE /* LevelScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0346AA41A0628CD00BC98BE /* LevelScene.cpp */; };
+		B0346AAA1A062F6F00BC98BE /* MapHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0346AA81A062F6F00BC98BE /* MapHelper.cpp */; };
+		B0346AAB1A062F6F00BC98BE /* MapHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0346AA81A062F6F00BC98BE /* MapHelper.cpp */; };
 		B077765219F21ABF00F32C77 /* buildings1.png in Resources */ = {isa = PBXBuildFile; fileRef = B077764C19F21ABF00F32C77 /* buildings1.png */; };
 		B077765319F21ABF00F32C77 /* level1.png in Resources */ = {isa = PBXBuildFile; fileRef = B077764D19F21ABF00F32C77 /* level1.png */; };
 		B077765419F21ABF00F32C77 /* level01.tmx in Resources */ = {isa = PBXBuildFile; fileRef = B077764E19F21ABF00F32C77 /* level01.tmx */; };
@@ -267,6 +271,10 @@
 		50EF629517ECD46A001EB2F8 /* Icon-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-100.png"; sourceTree = "<group>"; };
 		50EF62A017ECD613001EB2F8 /* Icon-29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-29.png"; sourceTree = "<group>"; };
 		50EF62A117ECD613001EB2F8 /* Icon-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-50.png"; sourceTree = "<group>"; };
+		B0346AA41A0628CD00BC98BE /* LevelScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LevelScene.cpp; sourceTree = "<group>"; };
+		B0346AA51A0628CD00BC98BE /* LevelScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelScene.h; sourceTree = "<group>"; };
+		B0346AA81A062F6F00BC98BE /* MapHelper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MapHelper.cpp; sourceTree = "<group>"; };
+		B0346AA91A062F6F00BC98BE /* MapHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapHelper.h; sourceTree = "<group>"; };
 		B077764C19F21ABF00F32C77 /* buildings1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buildings1.png; sourceTree = "<group>"; };
 		B077764D19F21ABF00F32C77 /* level1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = level1.png; sourceTree = "<group>"; };
 		B077764E19F21ABF00F32C77 /* level01.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = level01.tmx; sourceTree = "<group>"; };
@@ -355,6 +363,7 @@
 				1AFAF8B416D35DE700DB1158 /* AppDelegate.h */,
 				1AFAF8B516D35DE700DB1158 /* HelloWorldScene.cpp */,
 				1AFAF8B616D35DE700DB1158 /* HelloWorldScene.h */,
+				B0346AA11A06118F00BC98BE /* levels */,
 				B077765A19F21ADD00F32C77 /* Roles.cpp */,
 				B077765B19F21ADD00F32C77 /* Roles.h */,
 			);
@@ -484,6 +493,18 @@
 			);
 			name = Resources;
 			path = ../Resources;
+			sourceTree = "<group>";
+		};
+		B0346AA11A06118F00BC98BE /* levels */ = {
+			isa = PBXGroup;
+			children = (
+				B0346AA41A0628CD00BC98BE /* LevelScene.cpp */,
+				B0346AA51A0628CD00BC98BE /* LevelScene.h */,
+				B0346AA81A062F6F00BC98BE /* MapHelper.cpp */,
+				B0346AA91A062F6F00BC98BE /* MapHelper.h */,
+			);
+			name = levels;
+			path = ../Classes/levels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -715,7 +736,9 @@
 			files = (
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				B077765C19F21ADD00F32C77 /* Roles.cpp in Sources */,
+				B0346AA61A0628CD00BC98BE /* LevelScene.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
+				B0346AAA1A062F6F00BC98BE /* MapHelper.cpp in Sources */,
 				1AFAF8B716D35DE700DB1158 /* AppDelegate.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
 				1AFAF8B816D35DE700DB1158 /* HelloWorldScene.cpp in Sources */,
@@ -727,8 +750,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				5087E75717EB910900C73F5D /* AppDelegate.cpp in Sources */,
+				B0346AA71A0628CD00BC98BE /* LevelScene.cpp in Sources */,
 				5087E75817EB910900C73F5D /* HelloWorldScene.cpp in Sources */,
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,
+				B0346AAB1A062F6F00BC98BE /* MapHelper.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
