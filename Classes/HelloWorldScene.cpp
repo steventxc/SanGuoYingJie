@@ -1,5 +1,6 @@
 #include "HelloWorldScene.h"
 #include "Roles.h"
+#include "levels/MapHelper.h"
 
 USING_NS_CC;
 using std::string;
@@ -70,7 +71,9 @@ bool HelloWorld::init()
     
     SpriteFrameCache::getInstance()->addSpriteFramesWithFile("move.plist", "move.pvr.ccz");
     
-    auto map = cocos2d::experimental::TMXTiledMap::create("level01.tmx");
+//    auto map = cocos2d::experimental::TMXTiledMap::create("level01.tmx");
+    auto map = MapHelper::getInstance()->setupLevelMap("level01.tmx");
+    
     this->addChild(map, 2);
     map->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
     map->setPosition(Vec2(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y));
@@ -117,7 +120,7 @@ void HelloWorld::menuCloseCallback(Ref* pSender)
 	MessageBox("You pressed the close button. Windows Store Apps do not implement a close button.","Alert");
     return;
 #endif
-
+;
     Director::getInstance()->end();
 
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
