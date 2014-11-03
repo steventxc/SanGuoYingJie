@@ -75,5 +75,29 @@ bool Roles::initWithTexture(Texture2D *texture, const Rect& rect, bool rotated)
         return false;
     }
     
+    // add touch listener
+    auto listener = EventListenerTouchOneByOne::create();
+    listener->setSwallowTouches(true);
+    listener->onTouchBegan = [this](Touch *touch, Event *event) {
+        
+        auto target = static_cast<Roles*>(event->getCurrentTarget());
+        
+        Point locationInNode = target->convertToNodeSpace(touch->getLocation());
+        Size s = target->getContentSize();
+        Rect rect = Rect(0, 0, s.width, s.height);
+        
+        if (rect.containsPoint(locationInNode))
+        {
+    
+            CCLOG("======================");
+    
+            return true;
+        }
+    
+        return false;
+    };
+    
+    _eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
+    
     return true;
 }

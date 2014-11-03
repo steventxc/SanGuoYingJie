@@ -37,11 +37,14 @@ experimental::TMXTiledMap * MapHelper:: setupLevelMap(const string& file)
         _mapTileSize = map->getTileSize();
         
         
+        
         auto backgroundLayer = map->getLayer("background");
         CC_BREAK_IF(!backgroundLayer);
         
+        CCLOG("map properties size %ld", backgroundLayer->getProperties().size());
         
-        auto sp1 = backgroundLayer->getTileAt(Point(3, 8));
+        auto buildingsLayer = map->getLayer("buildings");
+        auto sp1 = buildingsLayer->getTileAt(Point(11, 8));
 //        Point p = backgroundLayer->getPositionAt(Point(4,8));
 //        sp1->setAnchorPoint(Point::ANCHOR_MIDDLE);
         sp1->setOpacity(90);
@@ -68,7 +71,7 @@ experimental::TMXTiledMap * MapHelper:: setupLevelMap(const string& file)
             {
                 log("sprite began... x = %f, y = %f", locationInNode.x, locationInNode.y);
 //                target->setOpacity(180);
-                Point p =this->tileCoordForPosition(locationInNode);
+                Point p =this->getTileCoordByPosition(locationInNode);
                 CCLOG("tile Coord [%f, %f]", p.x, p.y);
                 
                 
@@ -86,7 +89,7 @@ experimental::TMXTiledMap * MapHelper:: setupLevelMap(const string& file)
     return nullptr;
 }
 
-Point MapHelper:: tileCoordForPosition(Point position)
+Point MapHelper:: getTileCoordByPosition(Point position)
 {
     int x = floorf(position.x / _mapTileSize.width);
     int y = floorf(((_mapSize.height * _mapTileSize.height) - position.y) / _mapTileSize.height);

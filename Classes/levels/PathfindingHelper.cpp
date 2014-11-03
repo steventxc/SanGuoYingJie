@@ -1,9 +1,9 @@
 //
-//  LevelScene.cpp
+//  PathfindingHelper.cpp
 //  SanGuoYingJie
 //
 //  Created by Steven.Xc.Tian.
 //
 //
 
-#include "LevelScene.h"
+#include "PathfindingHelper.h"

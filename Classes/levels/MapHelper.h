@@ -21,7 +21,10 @@ public:
     
     cocos2d::experimental::TMXTiledMap * setupLevelMap(const std::string& file);
     
-    cocos2d::Point tileCoordForPosition(cocos2d::Point position);
+    /**
+     *  Converts a node (local) space point to tile coordinates. The result is in Points.
+     */
+    cocos2d::Point getTileCoordByPosition(cocos2d::Point position);
     
 protected:
     MapHelper();
