@@ -19,7 +19,7 @@ class MapHelper : public cocos2d::Node {
 public:
     static MapHelper * getInstance();
     
-    bool init();
+    
     
     cocos2d::experimental::TMXTiledMap * setupLevelMap(const std::string& file);
     
@@ -28,10 +28,17 @@ public:
      */
     cocos2d::Point getTileCoordByPosition(const cocos2d::Point &position);
     
-    unsigned getTileTerrain(const std::string& layername);
+    /**
+     * converts a tile coordinate to map space point.
+     */
+    cocos2d::Point getPositionByTileCoord(const cocos2d::Point &tileCoord);
+    
+    unsigned getTileTerrain(cocos2d::experimental::TMXLayer *layer);
     
 protected:
     MapHelper();
+    
+    bool init() { return true; };
     
 private:
     cocos2d::Size _mapSize, _mapTileSize;

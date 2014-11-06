@@ -49,17 +49,16 @@ experimental::TMXTiledMap * MapHelper:: setupLevelMap(const string& file)
         auto backgroundLayer = map->getLayer("background");
         CC_BREAK_IF(!backgroundLayer);
         
-        CCLOG("map properties size %ld", backgroundLayer->getProperties().size());
         
         
-        
-        int gid = backgroundLayer->getTileGIDAt(Vec2(0,0));
-        Value properties = map->getPropertiesForGID(gid);
-        CCLOG("########## %s", properties.getDescription().c_str());
+//        int gid = backgroundLayer->getTileGIDAt(Vec2(0,0));
+//        Value properties = map->getPropertiesForGID(gid);
+//        CCLOG("########## %s", properties.getDescription().c_str());
         
         
         
         auto buildingsLayer = map->getLayer("buildings");
+        
         auto sp1 = buildingsLayer->getTileAt(Point(11, 8));
 //        Point p = backgroundLayer->getPositionAt(Point(4,8));
 //        sp1->setAnchorPoint(Point::ANCHOR_MIDDLE);
@@ -145,11 +144,42 @@ Point MapHelper:: getTileCoordByPosition(const Point &position)
     return Point(x, y);
 }
 
-
-bool MapHelper:: init()
+Point MapHelper:: getPositionByTileCoord(const Point &tileCoord)
 {
-    return true;
+    float x = (tileCoord.x * _mapTileSize.width) + (_mapTileSize.width / 2);
+    float y = (_mapSize.height * _mapTileSize.height) - (tileCoord.y * _mapTileSize.height)
+    - (_mapTileSize.height / 2);
+    
+    return Point(x, y);
 }
+
+unsigned MapHelper:: getTileTerrain(experimental::TMXLayer *layer)
+{
+    string tileName = layer->getTileSet()->_name;
+    
+    decltype(_mapTerrainInfo.begin()) iter;
+    for (iter = _mapTerrainInfo.begin(); iter != _mapTerrainInfo.end(); ++iter) {
+        if ((*iter)->getName() == tileName) {
+            
+            auto types = (*iter)->getTerrainTypes();
+            for (decltype(types.begin()) it = types.begin(); it != types.end(); ++it) {
+                CCLOG("terrain type name: %s", it->asString().c_str());
+            }
+            
+            auto tiles = (*iter)->getTileTerrainInfo();
+            CCLOG("tile size : %ld \n", tiles.size());
+            
+            for(int i= 0; i < tiles.size(); i++)
+            {
+                CCLOG("key: %d, value: %s <--> %d", tiles.at(i)->_id, tiles.at(i)->_value.asString().c_str(), tiles.at(i)->_value.asInt());
+            }
+            
+            break;
+        }
+    }
+}
+
+
 
 MapHelper:: MapHelper() :
 _mapSize(Size::ZERO), _mapTileSize(Size::ZERO)
