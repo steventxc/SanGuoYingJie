@@ -15,11 +15,10 @@ class LayerTerrainInfo;
 
 class MapHelper : public cocos2d::Node {
     friend class LevelScene;
+    friend class PathfindingHelper;
     
 public:
-    static MapHelper * getInstance();
-    
-    
+    static MapHelper * create(const std::string& file);
     
     cocos2d::experimental::TMXTiledMap * setupLevelMap(const std::string& file);
     
@@ -35,10 +34,12 @@ public:
     
     unsigned getTileTerrain(cocos2d::experimental::TMXLayer *layer);
     
+    bool isValidTileCoord(const cocos2d::Point &tileCoord);
+    
 protected:
     MapHelper();
     
-    bool init() { return true; };
+    bool initWithFile(const std::string& file);
     
 private:
     cocos2d::Size _mapSize, _mapTileSize;

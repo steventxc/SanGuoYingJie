@@ -14,19 +14,22 @@
 USING_NS_CC;
 using std::string;
 
-// singleton stuff
-static MapHelper *s_InstanceMapHelper = nullptr;
-
-MapHelper * MapHelper:: getInstance()
+MapHelper * MapHelper:: create(const std::string& file)
 {
-    if (!s_InstanceMapHelper)
-    {
-        s_InstanceMapHelper = new (std::nothrow) MapHelper();
-        CCASSERT(s_InstanceMapHelper, "FATAL: Not enough memory");
-        s_InstanceMapHelper->init();
+    MapHelper *ret = new MapHelper();
+    if (ret && ret->initWithFile(file)) {
+        ret->autorelease();
+    } else {
+        CC_SAFE_DELETE(ret);
     }
     
-    return s_InstanceMapHelper;
+    return ret;
+}
+
+
+bool initWithFile(const std::string& file)
+{
+    return true;
 }
 
 experimental::TMXTiledMap * MapHelper:: setupLevelMap(const string& file)
@@ -67,38 +70,6 @@ experimental::TMXTiledMap * MapHelper:: setupLevelMap(const string& file)
        
         
         
-        string tileName = backgroundLayer->getTileSet()->_name;
-        decltype(_mapTerrainInfo.begin()) iter;
-        for (iter = _mapTerrainInfo.begin(); iter != _mapTerrainInfo.end(); ++iter) {
-            if ((*iter)->getName() == tileName) {
-                
-                auto types = (*iter)->getTerrainTypes();
-                for (decltype(types.begin()) it = types.begin(); it != types.end(); ++it) {
-                    CCLOG("terrain type name: %s", it->asString().c_str());
-                }
-                
-                auto tiles = (*iter)->getTileTerrainInfo();
-                CCLOG("tile size : %ld \n", tiles.size());
-                
-                for(int i= 0; i < tiles.size(); i++)
-                {
-                    CCLOG("key: %d, value: %s <--> %d", tiles.at(i)->_id, tiles.at(i)->_value.asString().c_str(), tiles.at(i)->_value.asInt());
-                }
-            
-                break;
-            }
-        }
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
         auto sp2 = backgroundLayer->getTileAt(Point(1, 1));
         sp2->setOpacity(100);
         
@@ -135,6 +106,11 @@ experimental::TMXTiledMap * MapHelper:: setupLevelMap(const string& file)
     } while (false);
     
     return nullptr;
+}
+
+bool MapHelper:: isValidTileCoord(const Point &tileCoord)
+{
+    return false;
 }
 
 Point MapHelper:: getTileCoordByPosition(const Point &position)
