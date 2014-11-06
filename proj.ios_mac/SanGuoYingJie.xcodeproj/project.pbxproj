@@ -17,7 +17,6 @@
 		1AC6FB30180E99EB004C840B /* libcocos2dx iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC6FB07180E9839004C840B /* libcocos2dx iOS.a */; };
 		1AC6FB31180E99EB004C840B /* libcocos2dx-extensions iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC6FB09180E9839004C840B /* libcocos2dx-extensions iOS.a */; };
 		1AC6FB32180E99EB004C840B /* libCocosDenshion iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC6FB0F180E9839004C840B /* libCocosDenshion iOS.a */; };
-		1AFAF8B716D35DE700DB1158 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1AFAF8B316D35DE700DB1158 /* AppDelegate.cpp */; };
 		1AFAF8BC16D35E4900DB1158 /* CloseNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AFAF8B916D35E4900DB1158 /* CloseNormal.png */; };
 		1AFAF8BD16D35E4900DB1158 /* CloseSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AFAF8BA16D35E4900DB1158 /* CloseSelected.png */; };
 		1AFAF8BE16D35E4900DB1158 /* HelloWorld.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AFAF8BB16D35E4900DB1158 /* HelloWorld.png */; };
@@ -32,7 +31,6 @@
 		5087E75317EB910900C73F5D /* CloseNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AFAF8B916D35E4900DB1158 /* CloseNormal.png */; };
 		5087E75417EB910900C73F5D /* CloseSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AFAF8BA16D35E4900DB1158 /* CloseSelected.png */; };
 		5087E75517EB910900C73F5D /* HelloWorld.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AFAF8BB16D35E4900DB1158 /* HelloWorld.png */; };
-		5087E75717EB910900C73F5D /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1AFAF8B316D35DE700DB1158 /* AppDelegate.cpp */; };
 		5087E76317EB910900C73F5D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		5087E76517EB910900C73F5D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
 		5087E76717EB910900C73F5D /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB412928DE900B8313A /* libz.dylib */; };
@@ -58,17 +56,12 @@
 		50EF629917ECD46A001EB2F8 /* Icon-100.png in Resources */ = {isa = PBXBuildFile; fileRef = 50EF629517ECD46A001EB2F8 /* Icon-100.png */; };
 		50EF62A217ECD613001EB2F8 /* Icon-29.png in Resources */ = {isa = PBXBuildFile; fileRef = 50EF62A017ECD613001EB2F8 /* Icon-29.png */; };
 		50EF62A317ECD613001EB2F8 /* Icon-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 50EF62A117ECD613001EB2F8 /* Icon-50.png */; };
-		B0346AA61A0628CD00BC98BE /* LevelScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0346AA41A0628CD00BC98BE /* LevelScene.cpp */; };
-		B0346AA71A0628CD00BC98BE /* LevelScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0346AA41A0628CD00BC98BE /* LevelScene.cpp */; };
-		B0346AAA1A062F6F00BC98BE /* MapHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0346AA81A062F6F00BC98BE /* MapHelper.cpp */; };
-		B0346AAB1A062F6F00BC98BE /* MapHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0346AA81A062F6F00BC98BE /* MapHelper.cpp */; };
 		B077765219F21ABF00F32C77 /* buildings1.png in Resources */ = {isa = PBXBuildFile; fileRef = B077764C19F21ABF00F32C77 /* buildings1.png */; };
 		B077765319F21ABF00F32C77 /* level1.png in Resources */ = {isa = PBXBuildFile; fileRef = B077764D19F21ABF00F32C77 /* level1.png */; };
 		B077765419F21ABF00F32C77 /* level01.tmx in Resources */ = {isa = PBXBuildFile; fileRef = B077764E19F21ABF00F32C77 /* level01.tmx */; };
 		B077765519F21ABF00F32C77 /* mask.png in Resources */ = {isa = PBXBuildFile; fileRef = B077764F19F21ABF00F32C77 /* mask.png */; };
 		B077765619F21ABF00F32C77 /* move.plist in Resources */ = {isa = PBXBuildFile; fileRef = B077765019F21ABF00F32C77 /* move.plist */; };
 		B077765719F21ABF00F32C77 /* move.pvr.ccz in Resources */ = {isa = PBXBuildFile; fileRef = B077765119F21ABF00F32C77 /* move.pvr.ccz */; };
-		B077765C19F21ADD00F32C77 /* Roles.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B077765A19F21ADD00F32C77 /* Roles.cpp */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
 		BF1712471292920000B8313A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB412928DE900B8313A /* libz.dylib */; };
 		BF1C47F01293687400B63C5D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF1C47EA1293683800B63C5D /* QuartzCore.framework */; };
@@ -76,7 +69,15 @@
 		D44C620E132DFF430009C878 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620D132DFF430009C878 /* AVFoundation.framework */; };
 		D44C6210132DFF4E0009C878 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620F132DFF4E0009C878 /* AudioToolbox.framework */; };
 		D6B0611B1803AB670077942B /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6B0611A1803AB670077942B /* CoreMotion.framework */; };
-		DFD0ADC31A07775D0010E1F2 /* PathfindingHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DFD0ADC11A07775D0010E1F2 /* PathfindingHelper.cpp */; };
+		DFFC51F91A0B43DA008D71EE /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DFFC51E61A0B43DA008D71EE /* AppDelegate.cpp */; };
+		DFFC51FA1A0B43DA008D71EE /* AStarPathfinding.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DFFC51EA1A0B43DA008D71EE /* AStarPathfinding.cpp */; };
+		DFFC51FB1A0B43DA008D71EE /* findpath.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DFFC51EC1A0B43DA008D71EE /* findpath.cpp */; };
+		DFFC51FC1A0B43DA008D71EE /* LevelScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DFFC51EE1A0B43DA008D71EE /* LevelScene.cpp */; };
+		DFFC51FD1A0B43DA008D71EE /* MapHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DFFC51F01A0B43DA008D71EE /* MapHelper.cpp */; };
+		DFFC51FE1A0B43DA008D71EE /* MapTerrainParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DFFC51F21A0B43DA008D71EE /* MapTerrainParser.cpp */; };
+		DFFC51FF1A0B43DA008D71EE /* PathfindingHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DFFC51F41A0B43DA008D71EE /* PathfindingHelper.cpp */; };
+		DFFC52001A0B43DA008D71EE /* Roles.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DFFC51F71A0B43DA008D71EE /* Roles.cpp */; };
+		DFFC52031A0B45B4008D71EE /* MapTerrain.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DFFC52011A0B45B4008D71EE /* MapTerrain.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -225,8 +226,6 @@
 /* Begin PBXFileReference section */
 		1AC6FAE5180E9839004C840B /* cocos2d_libs.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = cocos2d_libs.xcodeproj; path = ../cocos2d/build/cocos2d_libs.xcodeproj; sourceTree = "<group>"; };
 		1ACB3243164770DE00914215 /* libcurl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcurl.a; path = ../../cocos2dx/platform/third_party/ios/libraries/libcurl.a; sourceTree = "<group>"; };
-		1AFAF8B316D35DE700DB1158 /* AppDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AppDelegate.cpp; path = ../Classes/AppDelegate.cpp; sourceTree = "<group>"; };
-		1AFAF8B416D35DE700DB1158 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ../Classes/AppDelegate.h; sourceTree = "<group>"; };
 		1AFAF8B916D35E4900DB1158 /* CloseNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CloseNormal.png; sourceTree = "<group>"; };
 		1AFAF8BA16D35E4900DB1158 /* CloseSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CloseSelected.png; sourceTree = "<group>"; };
 		1AFAF8BB16D35E4900DB1158 /* HelloWorld.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HelloWorld.png; sourceTree = "<group>"; };
@@ -262,18 +261,12 @@
 		50EF629517ECD46A001EB2F8 /* Icon-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-100.png"; sourceTree = "<group>"; };
 		50EF62A017ECD613001EB2F8 /* Icon-29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-29.png"; sourceTree = "<group>"; };
 		50EF62A117ECD613001EB2F8 /* Icon-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-50.png"; sourceTree = "<group>"; };
-		B0346AA41A0628CD00BC98BE /* LevelScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LevelScene.cpp; sourceTree = "<group>"; };
-		B0346AA51A0628CD00BC98BE /* LevelScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelScene.h; sourceTree = "<group>"; };
-		B0346AA81A062F6F00BC98BE /* MapHelper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MapHelper.cpp; sourceTree = "<group>"; };
-		B0346AA91A062F6F00BC98BE /* MapHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapHelper.h; sourceTree = "<group>"; };
 		B077764C19F21ABF00F32C77 /* buildings1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buildings1.png; sourceTree = "<group>"; };
 		B077764D19F21ABF00F32C77 /* level1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = level1.png; sourceTree = "<group>"; };
 		B077764E19F21ABF00F32C77 /* level01.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = level01.tmx; sourceTree = "<group>"; };
 		B077764F19F21ABF00F32C77 /* mask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mask.png; sourceTree = "<group>"; };
 		B077765019F21ABF00F32C77 /* move.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = move.plist; sourceTree = "<group>"; };
 		B077765119F21ABF00F32C77 /* move.pvr.ccz */ = {isa = PBXFileReference; lastKnownFileType = file; path = move.pvr.ccz; sourceTree = "<group>"; };
-		B077765A19F21ADD00F32C77 /* Roles.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Roles.cpp; path = ../Classes/Roles.cpp; sourceTree = "<group>"; };
-		B077765B19F21ADD00F32C77 /* Roles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Roles.h; path = ../Classes/Roles.h; sourceTree = "<group>"; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB412928DE900B8313A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		BF1C47EA1293683800B63C5D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -281,8 +274,25 @@
 		D44C620D132DFF430009C878 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		D44C620F132DFF4E0009C878 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		D6B0611A1803AB670077942B /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/CoreMotion.framework; sourceTree = DEVELOPER_DIR; };
-		DFD0ADC11A07775D0010E1F2 /* PathfindingHelper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PathfindingHelper.cpp; sourceTree = "<group>"; };
-		DFD0ADC21A07775D0010E1F2 /* PathfindingHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PathfindingHelper.h; sourceTree = "<group>"; };
+		DFFC51E61A0B43DA008D71EE /* AppDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AppDelegate.cpp; sourceTree = "<group>"; };
+		DFFC51E71A0B43DA008D71EE /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		DFFC51EA1A0B43DA008D71EE /* AStarPathfinding.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AStarPathfinding.cpp; sourceTree = "<group>"; };
+		DFFC51EB1A0B43DA008D71EE /* AStarPathfinding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AStarPathfinding.h; sourceTree = "<group>"; };
+		DFFC51EC1A0B43DA008D71EE /* findpath.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = findpath.cpp; sourceTree = "<group>"; };
+		DFFC51ED1A0B43DA008D71EE /* fsa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fsa.h; sourceTree = "<group>"; };
+		DFFC51EE1A0B43DA008D71EE /* LevelScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LevelScene.cpp; sourceTree = "<group>"; };
+		DFFC51EF1A0B43DA008D71EE /* LevelScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelScene.h; sourceTree = "<group>"; };
+		DFFC51F01A0B43DA008D71EE /* MapHelper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MapHelper.cpp; sourceTree = "<group>"; };
+		DFFC51F11A0B43DA008D71EE /* MapHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapHelper.h; sourceTree = "<group>"; };
+		DFFC51F21A0B43DA008D71EE /* MapTerrainParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MapTerrainParser.cpp; sourceTree = "<group>"; };
+		DFFC51F31A0B43DA008D71EE /* MapTerrainParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapTerrainParser.h; sourceTree = "<group>"; };
+		DFFC51F41A0B43DA008D71EE /* PathfindingHelper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PathfindingHelper.cpp; sourceTree = "<group>"; };
+		DFFC51F51A0B43DA008D71EE /* PathfindingHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PathfindingHelper.h; sourceTree = "<group>"; };
+		DFFC51F61A0B43DA008D71EE /* stlastar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stlastar.h; sourceTree = "<group>"; };
+		DFFC51F71A0B43DA008D71EE /* Roles.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Roles.cpp; sourceTree = "<group>"; };
+		DFFC51F81A0B43DA008D71EE /* Roles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Roles.h; sourceTree = "<group>"; };
+		DFFC52011A0B45B4008D71EE /* MapTerrain.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MapTerrain.cpp; sourceTree = "<group>"; };
+		DFFC52021A0B45B4008D71EE /* MapTerrain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapTerrain.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -349,19 +359,6 @@
 			path = Classes;
 			sourceTree = "<group>";
 		};
-		15AA9C4015B7EC450033D6C2 /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				1AFAF8B316D35DE700DB1158 /* AppDelegate.cpp */,
-				1AFAF8B416D35DE700DB1158 /* AppDelegate.h */,
-				B0346AA11A06118F00BC98BE /* levels */,
-				B077765A19F21ADD00F32C77 /* Roles.cpp */,
-				B077765B19F21ADD00F32C77 /* Roles.h */,
-			);
-			name = Classes;
-			path = ../classes;
-			sourceTree = "<group>";
-		};
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -392,7 +389,7 @@
 			isa = PBXGroup;
 			children = (
 				1AC6FAE5180E9839004C840B /* cocos2d_libs.xcodeproj */,
-				15AA9C4015B7EC450033D6C2 /* Classes */,
+				DFFC51E51A0B43DA008D71EE /* Classes */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				080E96DDFE201D6D7F000001 /* ios */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
@@ -465,18 +462,47 @@
 			path = ../Resources;
 			sourceTree = "<group>";
 		};
-		B0346AA11A06118F00BC98BE /* levels */ = {
+		DFFC51E51A0B43DA008D71EE /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				B0346AA41A0628CD00BC98BE /* LevelScene.cpp */,
-				B0346AA51A0628CD00BC98BE /* LevelScene.h */,
-				B0346AA81A062F6F00BC98BE /* MapHelper.cpp */,
-				B0346AA91A062F6F00BC98BE /* MapHelper.h */,
-				DFD0ADC11A07775D0010E1F2 /* PathfindingHelper.cpp */,
-				DFD0ADC21A07775D0010E1F2 /* PathfindingHelper.h */,
+				DFFC51E61A0B43DA008D71EE /* AppDelegate.cpp */,
+				DFFC51E71A0B43DA008D71EE /* AppDelegate.h */,
+				DFFC51E81A0B43DA008D71EE /* game */,
+				DFFC51E91A0B43DA008D71EE /* levels */,
+				DFFC51F71A0B43DA008D71EE /* Roles.cpp */,
+				DFFC51F81A0B43DA008D71EE /* Roles.h */,
 			);
-			name = levels;
-			path = ../Classes/levels;
+			name = Classes;
+			path = ../Classes;
+			sourceTree = "<group>";
+		};
+		DFFC51E81A0B43DA008D71EE /* game */ = {
+			isa = PBXGroup;
+			children = (
+				DFFC52011A0B45B4008D71EE /* MapTerrain.cpp */,
+				DFFC52021A0B45B4008D71EE /* MapTerrain.h */,
+			);
+			path = game;
+			sourceTree = "<group>";
+		};
+		DFFC51E91A0B43DA008D71EE /* levels */ = {
+			isa = PBXGroup;
+			children = (
+				DFFC51EA1A0B43DA008D71EE /* AStarPathfinding.cpp */,
+				DFFC51EB1A0B43DA008D71EE /* AStarPathfinding.h */,
+				DFFC51EC1A0B43DA008D71EE /* findpath.cpp */,
+				DFFC51ED1A0B43DA008D71EE /* fsa.h */,
+				DFFC51EE1A0B43DA008D71EE /* LevelScene.cpp */,
+				DFFC51EF1A0B43DA008D71EE /* LevelScene.h */,
+				DFFC51F01A0B43DA008D71EE /* MapHelper.cpp */,
+				DFFC51F11A0B43DA008D71EE /* MapHelper.h */,
+				DFFC51F21A0B43DA008D71EE /* MapTerrainParser.cpp */,
+				DFFC51F31A0B43DA008D71EE /* MapTerrainParser.h */,
+				DFFC51F41A0B43DA008D71EE /* PathfindingHelper.cpp */,
+				DFFC51F51A0B43DA008D71EE /* PathfindingHelper.h */,
+				DFFC51F61A0B43DA008D71EE /* stlastar.h */,
+			);
+			path = levels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -705,13 +731,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DFFC51FE1A0B43DA008D71EE /* MapTerrainParser.cpp in Sources */,
+				DFFC51FA1A0B43DA008D71EE /* AStarPathfinding.cpp in Sources */,
+				DFFC51FF1A0B43DA008D71EE /* PathfindingHelper.cpp in Sources */,
+				DFFC52001A0B43DA008D71EE /* Roles.cpp in Sources */,
+				DFFC51F91A0B43DA008D71EE /* AppDelegate.cpp in Sources */,
+				DFFC51FC1A0B43DA008D71EE /* LevelScene.cpp in Sources */,
+				DFFC52031A0B45B4008D71EE /* MapTerrain.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
-				B077765C19F21ADD00F32C77 /* Roles.cpp in Sources */,
-				DFD0ADC31A07775D0010E1F2 /* PathfindingHelper.cpp in Sources */,
-				B0346AA61A0628CD00BC98BE /* LevelScene.cpp in Sources */,
+				DFFC51FD1A0B43DA008D71EE /* MapHelper.cpp in Sources */,
+				DFFC51FB1A0B43DA008D71EE /* findpath.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
-				B0346AAA1A062F6F00BC98BE /* MapHelper.cpp in Sources */,
-				1AFAF8B716D35DE700DB1158 /* AppDelegate.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -720,9 +750,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5087E75717EB910900C73F5D /* AppDelegate.cpp in Sources */,
-				B0346AA71A0628CD00BC98BE /* LevelScene.cpp in Sources */,
-				B0346AAB1A062F6F00BC98BE /* MapHelper.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
