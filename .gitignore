@@ -1,6 +1,2 @@
-.xcuserdatad
-*.xcscheme
-
-*.xcuserstate
-
-*.xcbkptlist
+# 忽略xuserdata 文件夹
+xcuserdata/
