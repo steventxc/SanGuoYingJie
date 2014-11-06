@@ -10,6 +10,11 @@
    <terrain name="mountainland" tile="-1"/>
    <terrain name="grassland" tile="-1"/>
   </terraintypes>
+  <tile id="0" terrain="1,1,1,1">
+   <properties>
+    <property name="Cliff" value="1"/>
+   </properties>
+  </tile>
   <tile id="16" terrain=",2,,2"/>
   <tile id="17" terrain="4,4,4,4"/>
   <tile id="19" terrain="0,0,0,0"/>
@@ -224,6 +229,11 @@
  </tileset>
  <tileset firstgid="450" name="buildings" tilewidth="32" tileheight="32">
   <image source="buildings1.png" width="64" height="96"/>
+  <terraintypes>
+   <terrain name="jianzhu" tile="-1"/>
+  </terraintypes>
+  <tile id="0" terrain="0,0,0,0"/>
+  <tile id="2" terrain="0,0,0,0"/>
  </tileset>
  <layer name="background" width="28" height="16">
   <data encoding="base64" compression="zlib">
@@ -242,8 +252,8 @@
   <object gid="203" x="192" y="256"/>
  </objectgroup>
  <objectgroup name="roles">
-  <object name="zhangfei" gid="273" x="640" y="320"/>
-  <object gid="275" x="704" y="320"/>
+  <object name="zhangfei" gid="273" x="640" y="320" visible="0"/>
+  <object gid="275" x="704" y="320" visible="0"/>
   <object gid="257" x="128" y="320"/>
   <object gid="257" x="192" y="320"/>
   <object gid="292" x="352" y="352"/>
@@ -257,5 +267,6 @@
     <property name="direction" value="left"/>
    </properties>
   </object>
+  <object x="704" y="224" width="32" height="32"/>
  </objectgroup>
 </map>
