@@ -7,8 +7,9 @@
 //
 
 #include "LevelScene.h"
-#include "MapHelper.h"
-#include "../Roles.h"
+#include "../game/MapHelper.h"
+#include "../game/Roles.h"
+#include "../game/MapTerrainParser.h"
 
 
 USING_NS_CC;
@@ -45,6 +46,8 @@ bool LevelScene:: init()
         
         //    auto map = cocos2d::experimental::TMXTiledMap::create("level01.tmx");
         auto map = MapHelper::getInstance()->setupLevelMap("level01.tmx");
+        
+        MapTerrainParser::create("level01.tmx");
         
         this->addChild(map, 2);
         map->setAnchorPoint(Vec2::ANCHOR_MIDDLE);

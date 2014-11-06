@@ -8,7 +8,7 @@
 
 #include "MapHelper.h"
 #include "MapTerrainParser.h"
-#include "../game/MapTerrain.h"
+#include "../data/MapTerrain.h"
 
 
 USING_NS_CC;
