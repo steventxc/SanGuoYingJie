@@ -11,7 +11,8 @@
 
 #include "cocos2d.h"
 
-class Roles : public cocos2d::Sprite {
+class Roles : public cocos2d::Sprite
+{
 public:
     /**
      * also see Sprite::create(const std::string& filename)

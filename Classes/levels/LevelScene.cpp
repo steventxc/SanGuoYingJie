@@ -45,7 +45,8 @@ bool LevelScene:: init()
         SpriteFrameCache::getInstance()->addSpriteFramesWithFile("move.plist", "move.pvr.ccz");
         
         //    auto map = cocos2d::experimental::TMXTiledMap::create("level01.tmx");
-        auto map = MapHelper::getInstance()->setupLevelMap("level01.tmx");
+        auto helper = MapHelper::create("");
+        auto map = helper->setupLevelMap("level01.tmx");
         
         MapTerrainParser::create("level01.tmx");
         
