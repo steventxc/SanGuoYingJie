@@ -7,6 +7,8 @@
 //
 
 #include "MapHelper.h"
+#include "MapTerrainParser.h"
+#include "../game/MapTerrain.h"
 
 
 USING_NS_CC;
@@ -37,19 +39,66 @@ experimental::TMXTiledMap * MapHelper:: setupLevelMap(const string& file)
         _mapTileSize = map->getTileSize();
         
         
+        // get map terrain infomation
+        auto terrainParser = MapTerrainParser::create(file);
+       _mapTerrainInfo = terrainParser->getTerrainInfo();
+        
+    
+        
         
         auto backgroundLayer = map->getLayer("background");
         CC_BREAK_IF(!backgroundLayer);
         
         CCLOG("map properties size %ld", backgroundLayer->getProperties().size());
         
+        
+        
+        int gid = backgroundLayer->getTileGIDAt(Vec2(0,0));
+        Value properties = map->getPropertiesForGID(gid);
+        CCLOG("########## %s", properties.getDescription().c_str());
+        
+        
+        
         auto buildingsLayer = map->getLayer("buildings");
         auto sp1 = buildingsLayer->getTileAt(Point(11, 8));
 //        Point p = backgroundLayer->getPositionAt(Point(4,8));
 //        sp1->setAnchorPoint(Point::ANCHOR_MIDDLE);
         sp1->setOpacity(90);
-//        sp1->setPosition(p)
-        ;
+//        sp1->setPosition(p);
+       
+        
+        
+        string tileName = backgroundLayer->getTileSet()->_name;
+        decltype(_mapTerrainInfo.begin()) iter;
+        for (iter = _mapTerrainInfo.begin(); iter != _mapTerrainInfo.end(); ++iter) {
+            if ((*iter)->getName() == tileName) {
+                
+                auto types = (*iter)->getTerrainTypes();
+                for (decltype(types.begin()) it = types.begin(); it != types.end(); ++it) {
+                    CCLOG("terrain type name: %s", it->asString().c_str());
+                }
+                
+                auto tiles = (*iter)->getTileTerrainInfo();
+                CCLOG("tile size : %ld \n", tiles.size());
+                
+                for(int i= 0; i < tiles.size(); i++)
+                {
+                    CCLOG("key: %d, value: %s <--> %d", tiles.at(i)->_id, tiles.at(i)->_value.asString().c_str(), tiles.at(i)->_value.asInt());
+                }
+            
+                break;
+            }
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
         auto sp2 = backgroundLayer->getTileAt(Point(1, 1));
         sp2->setOpacity(100);
@@ -89,7 +138,7 @@ experimental::TMXTiledMap * MapHelper:: setupLevelMap(const string& file)
     return nullptr;
 }
 
-Point MapHelper:: getTileCoordByPosition(Point position)
+Point MapHelper:: getTileCoordByPosition(const Point &position)
 {
     int x = floorf(position.x / _mapTileSize.width);
     int y = floorf(((_mapSize.height * _mapTileSize.height) - position.y) / _mapTileSize.height);
