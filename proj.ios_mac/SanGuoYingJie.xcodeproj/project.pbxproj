@@ -58,7 +58,6 @@
 		50EF62A317ECD613001EB2F8 /* Icon-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 50EF62A117ECD613001EB2F8 /* Icon-50.png */; };
 		B0076DEA1A0BA82900B39769 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0076DD71A0BA82900B39769 /* AppDelegate.cpp */; };
 		B0076DEB1A0BA82900B39769 /* MapTerrain.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0076DDA1A0BA82900B39769 /* MapTerrain.cpp */; };
-		B0076DED1A0BA82900B39769 /* MapHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0076DDF1A0BA82900B39769 /* MapHelper.cpp */; };
 		B0076DEE1A0BA82900B39769 /* MapTerrainParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0076DE11A0BA82900B39769 /* MapTerrainParser.cpp */; };
 		B0076DF01A0BA82900B39769 /* Roles.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0076DE51A0BA82900B39769 /* Roles.cpp */; };
 		B0076DF11A0BA82900B39769 /* LevelScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0076DE81A0BA82900B39769 /* LevelScene.cpp */; };
@@ -76,6 +75,7 @@
 		D44C620E132DFF430009C878 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620D132DFF430009C878 /* AVFoundation.framework */; };
 		D44C6210132DFF4E0009C878 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620F132DFF4E0009C878 /* AudioToolbox.framework */; };
 		D6B0611B1803AB670077942B /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6B0611A1803AB670077942B /* CoreMotion.framework */; };
+		DF0B44801A0CAB1A00A72AE0 /* TKMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DF0B447E1A0CAB1A00A72AE0 /* TKMap.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -263,8 +263,6 @@
 		B0076DD81A0BA82900B39769 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B0076DDA1A0BA82900B39769 /* MapTerrain.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MapTerrain.cpp; sourceTree = "<group>"; };
 		B0076DDB1A0BA82900B39769 /* MapTerrain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapTerrain.h; sourceTree = "<group>"; };
-		B0076DDF1A0BA82900B39769 /* MapHelper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MapHelper.cpp; sourceTree = "<group>"; };
-		B0076DE01A0BA82900B39769 /* MapHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapHelper.h; sourceTree = "<group>"; };
 		B0076DE11A0BA82900B39769 /* MapTerrainParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MapTerrainParser.cpp; sourceTree = "<group>"; };
 		B0076DE21A0BA82900B39769 /* MapTerrainParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapTerrainParser.h; sourceTree = "<group>"; };
 		B0076DE51A0BA82900B39769 /* Roles.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Roles.cpp; sourceTree = "<group>"; };
@@ -288,6 +286,8 @@
 		D44C620D132DFF430009C878 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		D44C620F132DFF4E0009C878 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		D6B0611A1803AB670077942B /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/CoreMotion.framework; sourceTree = DEVELOPER_DIR; };
+		DF0B447E1A0CAB1A00A72AE0 /* TKMap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TKMap.cpp; sourceTree = "<group>"; };
+		DF0B447F1A0CAB1A00A72AE0 /* TKMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKMap.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -483,12 +483,12 @@
 		B0076DDC1A0BA82900B39769 /* game */ = {
 			isa = PBXGroup;
 			children = (
-				B0076DDF1A0BA82900B39769 /* MapHelper.cpp */,
-				B0076DE01A0BA82900B39769 /* MapHelper.h */,
 				B0076DE11A0BA82900B39769 /* MapTerrainParser.cpp */,
 				B0076DE21A0BA82900B39769 /* MapTerrainParser.h */,
 				B0076DE51A0BA82900B39769 /* Roles.cpp */,
 				B0076DE61A0BA82900B39769 /* Roles.h */,
+				DF0B447E1A0CAB1A00A72AE0 /* TKMap.cpp */,
+				DF0B447F1A0CAB1A00A72AE0 /* TKMap.h */,
 			);
 			path = game;
 			sourceTree = "<group>";
@@ -748,7 +748,7 @@
 				B0076DF01A0BA82900B39769 /* Roles.cpp in Sources */,
 				B0076DEB1A0BA82900B39769 /* MapTerrain.cpp in Sources */,
 				B06F47171A0BB1280002760D /* PathfindingHelper.cpp in Sources */,
-				B0076DED1A0BA82900B39769 /* MapHelper.cpp in Sources */,
+				DF0B44801A0CAB1A00A72AE0 /* TKMap.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
