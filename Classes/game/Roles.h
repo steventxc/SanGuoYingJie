@@ -46,6 +46,13 @@ protected:
      * also see Sprite::initWithTexture(cocos2d::Texture2D *texture, const cocos2d::Rect& rect, bool rotated)
      */
     virtual bool initWithTexture(cocos2d::Texture2D *texture, const cocos2d::Rect& rect, bool rotated);
+    
+public:
+    bool isSelected(){ return _isSelected; }
+    
+private:
+    bool _isSelected; // indicate this role is selected;
+
 };
 
 #endif /* defined(__SanGuoYingJie__Roles__) */

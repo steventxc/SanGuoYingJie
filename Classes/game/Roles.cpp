@@ -88,8 +88,7 @@ bool Roles::initWithTexture(Texture2D *texture, const Rect& rect, bool rotated)
         
         if (rect.containsPoint(locationInNode))
         {
-    
-            CCLOG("======================");
+            this->_isSelected = true;
     
             return true;
         }
@@ -101,3 +100,6 @@ bool Roles::initWithTexture(Texture2D *texture, const Rect& rect, bool rotated)
     
     return true;
 }
+
+
+
