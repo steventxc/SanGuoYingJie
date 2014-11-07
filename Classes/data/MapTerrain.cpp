@@ -17,7 +17,6 @@ int MapTerrain:: getTerrainType(string &name)
 {
     // convert string to upper case.
     std::transform(name.begin(), name.end(), name.begin(), toupper);
-    CCLOG("( %s )", name.c_str());
     
     if (name == "OBSTACLE") {
         return OBSTACLE;

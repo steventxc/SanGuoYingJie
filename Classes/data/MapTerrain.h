@@ -30,7 +30,7 @@ public:
     
     static int getTerrainType(std::string &name);
     
-    inline static int getTerrainCost(Terrain terrain)
+    inline static int getTerrainCost(unsigned terrain)
     {
         switch (terrain) {
             case PLAIN:
