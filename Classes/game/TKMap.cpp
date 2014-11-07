@@ -8,6 +8,7 @@
 
 #include "TKMap.h"
 #include "../data/MapTerrain.h"
+#include "../ai/PathfindingHelper.h"
 
 USING_NS_CC;
 using std::string;
@@ -34,6 +35,8 @@ bool TKMap:: initData(const string& tmxFile)
     auto terrainParser = MapTerrainParser::create(tmxFile);
     _mapTerrainInfo = terrainParser->getTerrainInfo();
     
+    // init pathfinding helper
+    PathfindingHelper::getInstance()->setup(this);
     
     return true;
 }
@@ -53,8 +56,9 @@ bool TKMap:: isValidTileCoord(const Point &tileCoord)
 
 Point TKMap:: getTileCoordByPosition(const Point &position)
 {
-    int x = floorf(position.x / _tileSize.width);
-    int y = floorf(((_mapSize.height * _tileSize.height) - position.y) / _tileSize.height);
+    float x = floorf(position.x / _tileSize.width);
+    float y = floorf(((_mapSize.height * _tileSize.height) - position.y) / _tileSize.height);
+    
     return Point(x, y);
 }
 
@@ -71,8 +75,6 @@ Point TKMap:: getPositionByTileCoord(const Point &tileCoord)
 
 int TKMap:: getTileGID(const Point& tileCoord, experimental::TMXLayer *layer/* = nullptr */)
 {
-    CCASSERT(isValidTileCoord(tileCoord), "invalid tile coordinate.");
-    
     if (nullptr == layer) {
         layer = this->getLayer("background");
     }
@@ -106,7 +108,7 @@ unsigned TKMap:: getTileTerrain(int tileGID, experimental::TMXLayer *layer/* = n
             for(tile_it = tiles.begin(); tile_it != tiles.end(); ++tile_it)
             {
                 if (tileID == (*tile_it)->_id) {
-                    CCLOG("key: %d, value: %s <--> %d", (*tile_it)->_id, (*tile_it)->_value.asString().c_str(), (*tile_it)->_value.asInt());
+//                    CCLOG("key: %d, value: %s <--> %d", (*tile_it)->_id, (*tile_it)->_value.asString().c_str(), (*tile_it)->_value.asInt());
                     
                     terraintypeid = (*tile_it)->_value.asInt();
                     break;
@@ -118,7 +120,7 @@ unsigned TKMap:: getTileTerrain(int tileGID, experimental::TMXLayer *layer/* = n
                 auto types = (*iter)->getTerrainTypes();
                 
                 string terrainName = types.at(terraintypeid).asString();
-                CCLOG("terrain type name: %s", terrainName.c_str());
+//                CCLOG("terrain type name: %s", terrainName.c_str());
                 
                 return MapTerrain::getTerrainType(terrainName);
             }
@@ -127,13 +129,14 @@ unsigned TKMap:: getTileTerrain(int tileGID, experimental::TMXLayer *layer/* = n
         }
     }
     
-    return MapTerrain::Terrain::OBSTACLE;
+    return MapTerrain::Terrain::PLAIN;
 }
 
 bool TKMap:: isObstacle(const cocos2d::Point &tileCoord)
 {
+    // when this position is out of map, we assume it is a obstacle.
     if (!isValidTileCoord(tileCoord))
-        return false;
+        return true;
     
     const int gid = getTileGID(tileCoord);
     
