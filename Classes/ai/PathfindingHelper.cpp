@@ -8,8 +8,11 @@
 
 #include "PathfindingHelper.h"
 #include "../game/TKMap.h"
+#include "../data/MapTerrain.h"
 
 USING_NS_CC;
+
+#define DEBUG_PATHFINDING   1
 
 
 // singleton stuff
@@ -85,8 +88,9 @@ vector<Point> PathfindingHelper:: startAStarSearch(const cocos2d::Point &start, 
             steps ++;
             
         };
-        
+#if DEBUG_PATHFINDING
         CCLOG("Solution steps %d", steps);
+#endif
         
         // Once you're done with the solution you can free the nodes up
         astarsearch.FreeSolutionNodes();
@@ -127,7 +131,9 @@ bool MapSearchNode::IsSameState( MapSearchNode &rhs )
 
 void MapSearchNode::PrintNodeInfo()
 {
-    CCLOG("Node position : (%d,%d)\n", x,y);
+#if DEBUG_PATHFINDING
+    CCLOG("Node position : (%d,%d)", x,y);
+#endif
 }
 
 /*
@@ -180,40 +186,40 @@ bool MapSearchNode::GetSuccessors( AStarSearch<MapSearchNode> *astarsearch, MapS
     // left
     _point.set(x-1, y);
 	if( !((parent_x == x-1) && (parent_y == y))
-       && ( _map->isObstacle(_point) )
+       && ( !_map->isObstacle(_point) )
        )
 	{
-		NewNode = MapSearchNode( x-1, y );
+		NewNode = MapSearchNode( _point );
 		astarsearch->AddSuccessor( NewNode );
 	}
     
     // top
     _point.set(x, y-1);
 	if( !((parent_x == x) && (parent_y == y-1))
-       && ( _map->isObstacle(_point) )
+       && ( !_map->isObstacle(_point) )
        )
 	{
-		NewNode = MapSearchNode( x, y-1 );
+		NewNode = MapSearchNode( _point );
 		astarsearch->AddSuccessor( NewNode );
 	}
     
     // right
     _point.set(x+1, y);
 	if(!((parent_x == x+1) && (parent_y == y))
-       && ( _map->isObstacle(_point) )
+       && ( !_map->isObstacle(_point) )
        )
 	{
-		NewNode = MapSearchNode( x+1, y );
+		NewNode = MapSearchNode( _point );
 		astarsearch->AddSuccessor( NewNode );
 	}
     
     // bottom
     _point.set(x, y+1);
 	if( !((parent_x == x) && (parent_y == y+1))
-       && ( _map->isObstacle(_point) )
+       && ( !_map->isObstacle(_point) )
        )
 	{
-		NewNode = MapSearchNode( x, y+1 );
+		NewNode = MapSearchNode( _point );
 		astarsearch->AddSuccessor( NewNode );
 	}
     
@@ -227,5 +233,7 @@ bool MapSearchNode::GetSuccessors( AStarSearch<MapSearchNode> *astarsearch, MapS
 float MapSearchNode::GetCost( MapSearchNode &successor )
 {
     int gid = PathfindingHelper::getInstance()->_tkmap->getTileGID(Point(x, y));
-    return PathfindingHelper::getInstance()->_tkmap->getTileTerrain(gid);
+    unsigned type = PathfindingHelper::getInstance()->_tkmap->getTileTerrain(gid);
+    
+    return MapTerrain::getTerrainCost(type);
 }
