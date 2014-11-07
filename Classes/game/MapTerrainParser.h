@@ -10,7 +10,6 @@
 #define __SanGuoYingJie__MapTerrainParser__
 
 #include "cocos2d.h"
-#include <unordered_map>
 
 class LayerTerrainInfo : public cocos2d::Ref
 {
