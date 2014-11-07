@@ -11,7 +11,7 @@
 
 #include "cocos2d.h"
 
-//class MapHelper;
+class TKMap;
 
 class LevelScene : public cocos2d::Layer {
 //    friend class MapHelper;
@@ -24,6 +24,14 @@ public:
     
     virtual bool init() override;
     
+private:
+    TKMap *_tkmap; //
+    
+    std::vector<cocos2d::Point> _solution;
+    
+    void move(const cocos2d::Point &tileCoord);
+    
+    void justdoit();
 };
 
 #endif /* defined(__SanGuoYingJie__LevelScene__) */

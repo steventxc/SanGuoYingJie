@@ -9,6 +9,7 @@
 #include "LevelScene.h"
 #include "../game/TKMap.h"
 #include "../game/Roles.h"
+#include "../ai/PathfindingHelper.h"
 
 
 USING_NS_CC;
@@ -44,15 +45,18 @@ bool LevelScene:: init()
         SpriteFrameCache::getInstance()->addSpriteFramesWithFile("move.plist", "move.pvr.ccz");
         
         
-        auto map = TKMap::create("level01.tmx");
+        _tkmap = TKMap::create("level01.tmx");
         
         
-        this->addChild(map, 2);
-        map->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
-        map->setPosition(Vec2(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y));
         
-        auto roles = map->getObjectGroup("roles");
+        
+        this->addChild(_tkmap, 2);
+        _tkmap->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
+        _tkmap->setPosition(Vec2(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y));
+        
+        auto roles = _tkmap->getObjectGroup("roles");
         auto objs = roles->getObjects();
+        
         for (auto obj : objs) {
             auto o = obj.asValueMap();
             if (! o["name"].asString().empty()) {
@@ -62,10 +66,14 @@ bool LevelScene:: init()
                 string still(roleName);
                 still.append("_move3.png");
                 CCLOG("%s",still.c_str());
-                auto chara = Roles::createWithSpriteFrameName(still);
-                map->addChild(chara, 1);
-                chara->setAnchorPoint(Vec2::ANCHOR_BOTTOM_LEFT);
-                chara->setPosition(o["x"].asFloat(),o["y"].asFloat());
+                auto zhangfei = Roles::createWithSpriteFrameName(still);
+                _tkmap->addChild(zhangfei, 1);
+                zhangfei->setName("zhangfei");
+//                zhangfei->setAnchorPoint(Vec2::ANCHOR_BOTTOM_LEFT);
+                Point pt(o["x"].asFloat()+zhangfei->getContentSize().width / 2,
+                         o["y"].asFloat()+zhangfei->getContentSize().height / 2);
+                zhangfei->setPosition(pt);
+                
                 
                 // animation
                 roleName.append("_move%d.png");
@@ -78,13 +86,82 @@ bool LevelScene:: init()
                 animation->setDelayPerUnit(0.3f);
                 
                 auto action = Animate::create(animation);
-                chara->runAction(RepeatForever::create(action));
+                zhangfei->runAction(RepeatForever::create(action));
             }
         }
         
+        
+        auto _listener = EventListenerTouchOneByOne::create();
+        _listener->setSwallowTouches(true);
+        _listener->onTouchBegan = [this](Touch *touch, Event *event){
+            
+            auto target = static_cast<TKMap*>(event->getCurrentTarget());
+            
+            Point locationInNode = target->convertToNodeSpace(touch->getLocation());
+            Size s = target->getContentSize();
+            Rect rect = Rect(0, 0, s.width, s.height);
+            
+            if (rect.containsPoint(locationInNode))
+            {
+                
+                this->move(locationInNode);
+            
+                return true;
+            }
+            
+            return false;
+        };
+        
+        _eventDispatcher->addEventListenerWithSceneGraphPriority(_listener, _tkmap);
         
         bCon = true;
     } while (false);
     
     return bCon;
 }
+
+void LevelScene::move(const cocos2d::Point &goal)
+{
+    Point end = _tkmap->getTileCoordByPosition(goal);
+    if (_tkmap->isObstacle(end)) {
+        CCLOG("## this tile is OBSTACLE!");
+        return;
+    }
+    
+    auto role = dynamic_cast<Roles*>(_tkmap->getChildByName("zhangfei"));
+    Point start = _tkmap->getTileCoordByPosition(role->getPosition());
+    
+    if (start == end) {
+        CCLOG("you have already there!");
+        return;
+    }
+    
+    CCLOG("start point tile coord [%f, %f]", start.x, start.y);
+    CCLOG("end point tile coord [%f, %f]", end.x, end.y);
+    
+    _solution = PathfindingHelper::getInstance()->startAStarSearch(start, end);
+    
+    justdoit();
+}
+
+void LevelScene::justdoit()
+{
+    if (!_solution.empty()) {
+        Point pot = _solution.front();
+        
+        _solution.erase(_solution.begin());
+        
+        pot = _tkmap->getPositionByTileCoord(pot);
+        
+        auto role = _tkmap->getChildByName("zhangfei");
+        
+        auto move = MoveTo::create(0.1f, pot);
+        auto callback = CallFunc::create(CC_CALLBACK_0(LevelScene::justdoit, this));
+        auto seq = Sequence::create(move, callback, NULL);
+        role->runAction(seq);
+    }
+}
+
+
+
+
