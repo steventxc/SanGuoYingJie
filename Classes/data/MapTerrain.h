@@ -9,7 +9,7 @@
 #ifndef __SanGuoYingJie__MapTerrain__
 #define __SanGuoYingJie__MapTerrain__
 
-#include <iostream>
+#include "cocos2d.h"
 
 class MapTerrain
 {
@@ -27,6 +27,8 @@ public:
         WATER = OBSTACLE,
         CLIFF = OBSTACLE,
     };
+    
+    static int getTerrainType(std::string &name);
     
     inline static int getTerrainCost(Terrain terrain)
     {
@@ -52,6 +54,8 @@ public:
         }
     }
     
+private:
+    MapTerrain();
 };
 
 #endif /* defined(__SanGuoYingJie__MapTerrain__) */
