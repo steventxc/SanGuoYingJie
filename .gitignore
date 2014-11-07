@@ -1,2 +1,4 @@
 # 忽略xuserdata 文件夹
 xcuserdata/
+
+xcshareddata/
