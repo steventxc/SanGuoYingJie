@@ -89,13 +89,14 @@ void MapTerrainParser:: startElement(void *ctx, const char *name, const char **a
         
         
         _terraininfo = LayerTerrainInfo::create();
+        CC_SAFE_RETAIN(_terraininfo);
         _terraininfo->setName(attributeDict["name"].asString());
         
         
     } else if (elementName == "terraintypes") {
         
         // <terraintypes> tag start
-        _terraintypes.clear();
+        _terraintypes = {};
         
     } else if (elementName == "terrain") {
         // get terrain types of current tile set in order
@@ -145,7 +146,7 @@ void MapTerrainParser:: endElement(void *ctx, const char *name)
         }
         
         // prepare to add tiles.
-        _tileTerrainInfo.clear();
+        _tileTerrainInfo = {};
         
     }
 
