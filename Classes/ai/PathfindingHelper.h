@@ -12,17 +12,28 @@
 #include "cocos2d.h"
 #include "stlastar.h"
 
+
+class TKMap;
+
 class PathfindingHelper : public cocos2d::Ref
 {
 public:
     static PathfindingHelper *getInstance();
     
-    void startAStarSearch(const cocos2d::Point &start, const cocos2d::Point &goal);
+    static void destroy();
+    
+    void setup(TKMap* map) { _tkmap = map; };
+    
+    vector<cocos2d::Point> startAStarSearch(const cocos2d::Point &start, const cocos2d::Point &goal);
     
 protected:
-    PathfindingHelper();
-    ~PathfindingHelper();
+    PathfindingHelper(){};
+    ~PathfindingHelper(){};
     
+    TKMap* _tkmap;
+    
+    
+    friend class MapSearchNode;
 };
 
 
@@ -34,6 +45,7 @@ public:
     
     MapSearchNode() { x = y = 0; }
     MapSearchNode( int px, int py ) { x=px; y=py; }
+    MapSearchNode( const cocos2d::Point &p ) { x=p.x; y=p.y; }
     
     // implement pure virtual methods of AStarState
     float GoalDistanceEstimate( MapSearchNode &nodeGoal );
@@ -42,7 +54,7 @@ public:
     float GetCost( MapSearchNode &successor );
     bool IsSameState( MapSearchNode &rhs );
     
-    void PrintNodeInfo(); 
+    void PrintNodeInfo();
     
     
 };
