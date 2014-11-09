@@ -32,6 +32,8 @@ private:
     void move(const cocos2d::Point &tileCoord);
     
     void justdoit();
+    
+    void setMask();
 };
 
 #endif /* defined(__SanGuoYingJie__LevelScene__) */

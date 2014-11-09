@@ -54,6 +54,11 @@ bool LevelScene:: init()
         _tkmap->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
         _tkmap->setPosition(Vec2(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y));
         
+        
+        
+        auto masklayer = _tkmap->getLayer("mask");
+        masklayer->setVisible(false);
+        
         auto roles = _tkmap->getObjectGroup("roles");
         auto objs = roles->getObjects();
         
@@ -103,7 +108,7 @@ bool LevelScene:: init()
             
             if (rect.containsPoint(locationInNode))
             {
-                
+                this->setMask();
                 this->move(locationInNode);
             
                 return true;
@@ -161,6 +166,24 @@ void LevelScene::justdoit()
         role->runAction(seq);
     }
 }
+
+void LevelScene:: setMask()
+{
+    auto masklayer = _tkmap->getLayer("mask");
+    if (masklayer->isVisible()) {
+            masklayer->setVisible(false);
+        masklayer->getTileAt(Point(1,1))->setVisible(true);
+    }
+    else
+    {
+            masklayer->setVisible(true);
+        masklayer->getTileAt(Point(1,1))->setVisible(false);
+    }
+    
+    
+
+}
+
 
 
 
