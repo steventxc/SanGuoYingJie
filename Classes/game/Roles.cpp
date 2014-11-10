@@ -25,7 +25,7 @@ Roles* Roles::create(const std::string& filename)
 Roles* Roles::createWithTexture(Texture2D *texture)
 {
     Roles *sprite = new (std::nothrow) Roles();
-    if (sprite && sprite->initWithTexture(texture))
+    if (sprite && sprite->Sprite::initWithTexture(texture))
     {
         sprite->autorelease();
         return sprite;
@@ -59,15 +59,15 @@ Roles* Roles::createWithSpriteFrameName(const std::string& spriteFrameName)
     return createWithSpriteFrame(frame);
 }
 
-bool Roles::initWithTexture(Texture2D *texture)
-{
-    CCASSERT(texture != nullptr, "Invalid texture for sprite");
-    
-    Rect rect = Rect::ZERO;
-    rect.size = texture->getContentSize();
-    
-    return Sprite::initWithTexture(texture, rect);
-}
+//bool Roles::initWithTexture(Texture2D *texture)
+//{
+//    CCASSERT(texture != nullptr, "Invalid texture for sprite");
+//    
+//    Rect rect = Rect::ZERO;
+//    rect.size = texture->getContentSize();
+//    
+//    return Sprite::initWithTexture(texture, rect);
+//}
 
 bool Roles::initWithTexture(Texture2D *texture, const Rect& rect, bool rotated)
 {

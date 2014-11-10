@@ -40,7 +40,7 @@ protected:
     /**
      * also see Sprite::initWithTexture(cocos2d::Texture2D *texture, const cocos2d::Rect& rect, bool rotated)
      */
-    virtual bool initWithTexture(cocos2d::Texture2D *texture);
+//    virtual bool initWithTexture(cocos2d::Texture2D *texture);
     
     /**
      * also see Sprite::initWithTexture(cocos2d::Texture2D *texture, const cocos2d::Rect& rect, bool rotated)
