@@ -7,6 +7,7 @@
 //
 
 #include "LevelScene.h"
+#include "LevelHelper.h"
 #include "../game/TKMap.h"
 #include "../game/Roles.h"
 #include "../ai/PathfindingHelper.h"
@@ -41,10 +42,14 @@ bool LevelScene:: init()
     bool bCon = false;
     do {
         
+        // init level helper. REFRESH
+        _levelHelper = LevelHelper::create();
+        
         
         SpriteFrameCache::getInstance()->addSpriteFramesWithFile("move.plist", "move.pvr.ccz");
         
         
+        // REFRESH
         _tkmap = TKMap::create("level01.tmx");
         
         

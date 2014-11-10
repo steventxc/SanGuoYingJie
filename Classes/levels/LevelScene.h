@@ -13,6 +13,8 @@
 
 class TKMap;
 
+class LevelHelper;
+
 class LevelScene : public cocos2d::Layer {
 //    friend class MapHelper;
     
@@ -26,6 +28,8 @@ public:
     
 private:
     TKMap *_tkmap; //
+    
+    LevelHelper *_levelHelper;
     
     std::vector<cocos2d::Point> _solution;
     
