@@ -24,7 +24,11 @@ public:
     
     void setup(TKMap* map) { _tkmap = map; };
     
-    vector<cocos2d::Point> startAStarSearch(const cocos2d::Point &start, const cocos2d::Point &goal);
+    static vector<cocos2d::Point> startAStarSearch(const cocos2d::Point &start, const cocos2d::Point &goal);
+    
+    static vector<cocos2d::Point> startFloodFill(const cocos2d::Point &start);
+    
+    
     
 protected:
     PathfindingHelper(){};

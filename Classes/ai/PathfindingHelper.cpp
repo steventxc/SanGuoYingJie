@@ -111,6 +111,27 @@ vector<Point> PathfindingHelper:: startAStarSearch(const cocos2d::Point &start, 
 }
 
 
+/*
+void flood_fill(int x,int y,int color)
+{
+    area[x][y]=color;
+    if(x>0&&area[x-1][y]==0)flood_fill(x-1,y,color);
+    if(y>0&&area[x][y-1]==0)flood_fill(x,y-1,color);
+    if(x<MAX_X&&area[x+1][y]==0)flood_fill(x+1,y,color);
+    if(y<MAX_Y&&area[x][y+1]==0)flood_fill(x,y+1,color);
+    
+}
+*/
+
+
+vector<Point> startFloodFill(const Point &start)
+{
+    // Create a start state
+    MapSearchNode nodeStart(start);
+}
+
+
+
 
 // =================================================
 
