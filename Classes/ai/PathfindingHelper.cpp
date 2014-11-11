@@ -123,11 +123,13 @@ void flood_fill(int x,int y,int color)
 }
 */
 
-
-vector<Point> startFloodFill(const Point &start)
+Point start;
+vector<Point> PathfindingHelper:: startFloodFill(const Point &coord, unsigned limited)
 {
+    float x = coord.x;
+    float y = coord.y;
     // Create a start state
-    MapSearchNode nodeStart(start);
+    MapSearchNode node(x - 1 , y);
 }
 
 

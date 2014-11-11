@@ -274,6 +274,7 @@
 		B02BDFE01A0DC1CA000CC860 /* level01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = level01.png; sourceTree = "<group>"; };
 		B02BDFE51A10E5F8000CC860 /* LevelHelper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LevelHelper.cpp; sourceTree = "<group>"; };
 		B02BDFE61A10E5F8000CC860 /* LevelHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelHelper.h; sourceTree = "<group>"; };
+		B02BDFE91A124C21000CC860 /* floodfill.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = floodfill.h; sourceTree = "<group>"; };
 		B06F470E1A0BABF00002760D /* fsa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fsa.h; sourceTree = "<group>"; };
 		B06F470F1A0BABF00002760D /* stlastar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stlastar.h; sourceTree = "<group>"; };
 		B06F47151A0BB1280002760D /* PathfindingHelper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PathfindingHelper.cpp; sourceTree = "<group>"; };
@@ -514,6 +515,7 @@
 			isa = PBXGroup;
 			children = (
 				B06F470E1A0BABF00002760D /* fsa.h */,
+				B02BDFE91A124C21000CC860 /* floodfill.h */,
 				B06F470F1A0BABF00002760D /* stlastar.h */,
 				B06F47151A0BB1280002760D /* PathfindingHelper.cpp */,
 				B06F47161A0BB1280002760D /* PathfindingHelper.h */,

@@ -26,7 +26,7 @@ public:
     
     static vector<cocos2d::Point> startAStarSearch(const cocos2d::Point &start, const cocos2d::Point &goal);
     
-    static vector<cocos2d::Point> startFloodFill(const cocos2d::Point &start);
+    vector<cocos2d::Point> startFloodFill(const cocos2d::Point &coord, unsigned limited);
     
     
     
