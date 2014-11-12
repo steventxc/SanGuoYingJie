@@ -11,6 +11,8 @@
 
 #include "cocos2d.h"
 
+class LevelScene;
+
 class Roles : public cocos2d::Sprite
 {
 public:
@@ -47,11 +49,15 @@ protected:
      */
     virtual bool initWithTexture(cocos2d::Texture2D *texture, const cocos2d::Rect& rect, bool rotated);
     
+    
 public:
     bool isSelected(){ return _isSelected; }
     
+    void setLevelScene(LevelScene* scene) {_levelScene = scene;};
+    
 private:
     bool _isSelected; // indicate this role is selected;
+    LevelScene *_levelScene;
 
 };
 

@@ -7,6 +7,7 @@
 //
 
 #include "Roles.h"
+#include "../levels/LevelScene.h"
 
 USING_NS_CC;
 
@@ -90,6 +91,8 @@ bool Roles::initWithTexture(Texture2D *texture, const Rect& rect, bool rotated)
         {
             this->_isSelected = true;
     
+            _levelScene->setMask(this);
+            
             return true;
         }
     
