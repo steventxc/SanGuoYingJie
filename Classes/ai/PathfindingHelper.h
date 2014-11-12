@@ -11,6 +11,7 @@
 
 #include "cocos2d.h"
 #include "stlastar.h"
+#include "floodfill.h"
 
 
 class TKMap;
@@ -60,7 +61,11 @@ public:
     
     void PrintNodeInfo();
     
+public:
     
+    FloodFillSearch<MapSearchNode>::Node* getNode(FloodFillSearch<MapSearchNode> *floodfillsearch, int x, int y);
+    
+    bool isValid();
 };
 
 #endif /* defined(__SanGuoYingJie__PathfindingHelper__) */

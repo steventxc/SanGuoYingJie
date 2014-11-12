@@ -95,6 +95,8 @@ vector<Point> PathfindingHelper:: startAStarSearch(const cocos2d::Point &start, 
         // Once you're done with the solution you can free the nodes up
         astarsearch.FreeSolutionNodes();
         
+        astarsearch.EnsureMemoryFreed();
+        
         return _solution;
     }
     else if( SearchState == AStarSearch<MapSearchNode>::SEARCH_STATE_FAILED )
@@ -123,13 +125,22 @@ void flood_fill(int x,int y,int color)
 }
 */
 
-Point start;
 vector<Point> PathfindingHelper:: startFloodFill(const Point &coord, unsigned limited)
 {
-    float x = coord.x;
-    float y = coord.y;
     // Create a start state
-    MapSearchNode node(x - 1 , y);
+    MapSearchNode searchnode(coord);
+    
+    FloodFillSearch<MapSearchNode> flood_fill;
+    flood_fill.SetStartStates(searchnode, limited);
+    
+    flood_fill.startSearch();
+
+    vector<MapSearchNode> sets = flood_fill.getResultSet();
+    for (vector<MapSearchNode>::iterator itr = sets.begin(); itr != sets.end(); ++itr) {
+        (*itr).PrintNodeInfo();
+    }
+    
+    return vector<Point>();
 }
 
 
@@ -208,8 +219,8 @@ bool MapSearchNode::GetSuccessors( AStarSearch<MapSearchNode> *astarsearch, MapS
     
     // left
     _point.set(x-1, y);
-	if( !((parent_x == x-1) && (parent_y == y))
-       && ( !_map->isObstacle(_point) )
+	if( ( !_map->isObstacle(_point) )
+       && !( (parent_x == x-1) && (parent_y == y) )
        )
 	{
 		NewNode = MapSearchNode( _point );
@@ -218,8 +229,8 @@ bool MapSearchNode::GetSuccessors( AStarSearch<MapSearchNode> *astarsearch, MapS
     
     // top
     _point.set(x, y-1);
-	if( !((parent_x == x) && (parent_y == y-1))
-       && ( !_map->isObstacle(_point) )
+	if( ( !_map->isObstacle(_point) )
+       && !( (parent_x == x) && (parent_y == y-1) )
        )
 	{
 		NewNode = MapSearchNode( _point );
@@ -228,8 +239,8 @@ bool MapSearchNode::GetSuccessors( AStarSearch<MapSearchNode> *astarsearch, MapS
     
     // right
     _point.set(x+1, y);
-	if(!((parent_x == x+1) && (parent_y == y))
-       && ( !_map->isObstacle(_point) )
+	if(( !_map->isObstacle(_point) )
+       && !( (parent_x == x+1) && (parent_y == y) )
        )
 	{
 		NewNode = MapSearchNode( _point );
@@ -238,8 +249,8 @@ bool MapSearchNode::GetSuccessors( AStarSearch<MapSearchNode> *astarsearch, MapS
     
     // bottom
     _point.set(x, y+1);
-	if( !((parent_x == x) && (parent_y == y+1))
-       && ( !_map->isObstacle(_point) )
+	if( ( !_map->isObstacle(_point) )
+       && !( (parent_x == x) && (parent_y == y+1) )
        )
 	{
 		NewNode = MapSearchNode( _point );
@@ -260,3 +271,19 @@ float MapSearchNode::GetCost( MapSearchNode &successor )
     
     return MapTerrain::getTerrainCost(type);
 }
+
+
+
+FloodFillSearch<MapSearchNode>::Node*
+MapSearchNode:: getNode(FloodFillSearch<MapSearchNode> *floodfillsearch, int x, int y)
+{
+    MapSearchNode mapNode(x, y);
+    return floodfillsearch->createNode(mapNode);
+}
+
+bool MapSearchNode:: isValid()
+{
+    return true;
+}
+
+
