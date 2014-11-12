@@ -37,7 +37,8 @@ private:
     
     void justdoit();
     
-    void setMask();
+public:
+    void setMask(cocos2d::Sprite *role);
 };
 
 #endif /* defined(__SanGuoYingJie__LevelScene__) */

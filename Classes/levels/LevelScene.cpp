@@ -77,6 +77,7 @@ bool LevelScene:: init()
                 still.append("_move3.png");
                 CCLOG("%s",still.c_str());
                 auto zhangfei = Roles::createWithSpriteFrameName(still);
+                zhangfei->setLevelScene(this);
                 _tkmap->addChild(zhangfei, 1);
                 zhangfei->setName("zhangfei");
 //                zhangfei->setAnchorPoint(Vec2::ANCHOR_BOTTOM_LEFT);
@@ -113,7 +114,7 @@ bool LevelScene:: init()
             
             if (rect.containsPoint(locationInNode))
             {
-                this->setMask();
+//                this->setMask();
                 this->move(locationInNode);
             
                 return true;
@@ -172,8 +173,12 @@ void LevelScene::justdoit()
     }
 }
 
-void LevelScene:: setMask()
+void LevelScene:: setMask(Sprite* role)
 {
+        Point pot = _tkmap->getTileCoordByPosition(role->getPosition());
+    
+    PathfindingHelper::getInstance()->startFloodFill(pot, 5);
+    
     auto masklayer = _tkmap->getLayer("mask");
     if (masklayer->isVisible()) {
             masklayer->setVisible(false);
