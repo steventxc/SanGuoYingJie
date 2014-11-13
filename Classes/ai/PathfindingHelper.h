@@ -62,9 +62,6 @@ public:
     void PrintNodeInfo();
     
 public:
-    
-    FloodFillSearch<MapSearchNode>::Node* getNode(FloodFillSearch<MapSearchNode> *floodfillsearch, int x, int y);
-    
     bool isValid();
 };
 

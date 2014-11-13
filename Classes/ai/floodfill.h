@@ -17,134 +17,82 @@ template <class UserState> class FloodFillSearch
 {
 public:
     
-    class Node
+    void SetupWithStartStates(UserState &Start, unsigned limited)
     {
-    public:
-        
-        bool isVisited;
-        
-        Node() : isVisited( false ) { }
-        
-        UserState m_UserState;
-    };
-    
-    
-public:
-    
-    void SetStartStates(UserState &Start, unsigned limited)
-    {
-        m_Start = new Node;
-        m_Start->m_UserState = Start;
-        
+        m_Start = Start;
         m_Limited = limited;
         
-    }
-    
-    void startSearch()
-    {
         SearchStep(m_Start);
     }
     
     vector<UserState> getResultSet()
     {
-        vector<UserState> result;
-        
-        typename vector<Node *>::iterator iter;
-        for (iter = m_ValidList.begin(); iter != m_ValidList.end(); iter ++) {
-            result.push_back( (*iter)->m_UserState );
-        }
-        
-        return result;
+        return m_ResultList;
     }
     
-    
-    Node * createNode( UserState &State )
-    {
-        Node *node = new Node();
-        
-        if( node )
-        {
-            node->m_UserState = State;
-            return node;
-        }
-        
-        delete node;
-        
-        return nullptr;
-    }
-    
-    void destroyNode(Node *node)
-    {
-        delete node;
-    }
     
 protected:
     
-    void SearchStep(Node* node)
+    void SearchStep(UserState userNode)
     {
-        //        if (! node->m_UserState.IsSameState(m_Start->m_UserState)) {
-        node->isVisited = true;
-        m_ValidList.push_back( node );
-        //        }
-        
-        const int x = node->m_UserState.x;
-        const int y = node->m_UserState.y;
-        
-        if (!node->isVisited &&
-            node->m_UserState.isValid() &&
-            ( node->m_UserState.GoalDistanceEstimate(m_Start->m_UserState) <= m_Limited )
-            ) {
-            
-            auto n = node->m_UserState.getNode(this, x-1, y);
-            if (n) {
-                SearchStep(n);
+        // from back to head.
+        for (int i = m_ResultList.size()-1; i>=0; i--) {
+            if( userNode.IsSameState( m_ResultList[i] ) )
+            {
+                return;
             }
-            
         }
         
-        if (!node->isVisited &&
-            node->m_UserState.isValid() &&
-            ( node->m_UserState.GoalDistanceEstimate(m_Start->m_UserState) <= m_Limited )
+
+        m_ResultList.push_back( userNode );
+        
+        const int x = userNode.x;
+        const int y = userNode.y;
+        
+        
+        UserState node(x-1, y);
+        
+        if (node.isValid() &&
+            ( node.GoalDistanceEstimate(m_Start) <= m_Limited )
             ) {
-            
-            auto n = node->m_UserState.getNode(this, x, y-1);
-            if (n) {
-                SearchStep(n);
-            }
-            
+                SearchStep(node);
         }
         
-        if (!node->isVisited &&
-            node->m_UserState.isValid() &&
-            ( node->m_UserState.GoalDistanceEstimate(m_Start->m_UserState) <= m_Limited )
+        
+        node = UserState(x, y-1);
+        
+        if (node.isValid() &&
+            ( node.GoalDistanceEstimate(m_Start) <= m_Limited )
             ) {
-            
-            auto n = node->m_UserState.getNode(this, x+1, y);
-            if (n) {
-                SearchStep(n);
-            }
-            
+            SearchStep(node);
         }
         
-        if (!node->isVisited &&
-            node->m_UserState.isValid() &&
-            ( node->m_UserState.GoalDistanceEstimate(m_Start->m_UserState) <= m_Limited )
+        
+        node = UserState(x+1, y);
+        
+        if (userNode.isValid() &&
+            ( userNode.GoalDistanceEstimate(m_Start) <= m_Limited )
             ) {
-            
-            auto n = node->m_UserState.getNode(this, x, y+1);
-            if (n) {
-                SearchStep(n);
-            }
-            
+            SearchStep(node);
         }
+
+        
+        node = UserState(x, y+1);
+        
+        if (userNode.isValid() &&
+            (userNode.GoalDistanceEstimate(m_Start) <= m_Limited )
+            ) {
+            SearchStep(node);
+        }
+
     }
     
     
 private:
     
-    Node *m_Start;
+    UserState m_Start;
     unsigned m_Limited;
-    vector<Node *> m_ValidList;
+    vector<UserState> m_ResultList;
     
 };
 
