@@ -177,18 +177,29 @@ void LevelScene:: setMask(Sprite* role)
 {
         Point pot = _tkmap->getTileCoordByPosition(role->getPosition());
     
-    PathfindingHelper::getInstance()->startFloodFill(pot, 5);
+    auto tiles = PathfindingHelper::getInstance()->startFloodFill(pot, 5);
     
     auto masklayer = _tkmap->getLayer("mask");
-    if (masklayer->isVisible()) {
-            masklayer->setVisible(false);
-        masklayer->getTileAt(Point(1,1))->setVisible(true);
-    }
-    else
+    masklayer->setVisible(true);
+    
+    for (vector<Point>::iterator itr = tiles.begin(); itr != tiles.end(); ++itr)
     {
-            masklayer->setVisible(true);
-        masklayer->getTileAt(Point(1,1))->setVisible(false);
+        auto tile = masklayer->getTileAt( (*itr) );
+        tile->setVisible(false);
     }
+    
+    
+    
+    
+//    if (masklayer->isVisible()) {
+//            masklayer->setVisible(false);
+//        masklayer->getTileAt(Point(1,1))->setVisible(true);
+//    }
+//    else
+//    {
+//            masklayer->setVisible(true);
+//        masklayer->getTileAt(Point(1,1))->setVisible(false);
+//    }
     
     
 
