@@ -70,8 +70,8 @@ protected:
         
         node = UserState(x+1, y);
         
-        if (userNode.isValid() &&
-            ( userNode.GoalDistanceEstimate(m_Start) <= m_Limited )
+        if (node.isValid() &&
+            ( node.GoalDistanceEstimate(m_Start) <= m_Limited )
             ) {
             SearchStep(node);
         }
@@ -79,8 +79,8 @@ protected:
         
         node = UserState(x, y+1);
         
-        if (userNode.isValid() &&
-            (userNode.GoalDistanceEstimate(m_Start) <= m_Limited )
+        if (node.isValid() &&
+            (node.GoalDistanceEstimate(m_Start) <= m_Limited )
             ) {
             SearchStep(node);
         }
