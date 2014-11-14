@@ -277,7 +277,7 @@ float MapSearchNode::GetCost( MapSearchNode &successor )
 
 bool MapSearchNode:: isValid()
 {
-    return true;
+    return ! PathfindingHelper::getInstance()->_tkmap->isObstacle(Point(x, y));
 }
 
 
