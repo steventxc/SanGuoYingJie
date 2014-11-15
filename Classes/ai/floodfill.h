@@ -76,18 +76,21 @@ protected:
             }
         }
         
+        const int step = userNode->step;
+        
+                
 
         m_ResultList.push_back( userNode );
         
         const int x = userNode->m_UserState.x;
         const int y = userNode->m_UserState.y;
-        const int step = userNode->step;
+        
         
         
         UserState node(x-1, y);
         
         if (node.isValid() &&
-            ( node.GoalDistanceEstimate(m_Start->m_UserState) <= m_Limited )
+            ( step <= m_Limited )
             ) {
             
             auto _node = new MapNode;
@@ -100,11 +103,12 @@ protected:
         node = UserState(x, y-1);
         
         if (node.isValid() &&
-            ( node.GoalDistanceEstimate(m_Start->m_UserState) <= m_Limited )
+            (step <= m_Limited )
             ) {
             
             auto _node = new MapNode;
             _node->m_UserState = node;
+            _node->step = step + 1;
             SearchStep(_node);
         }
         
@@ -112,11 +116,12 @@ protected:
         node = UserState(x+1, y);
         
         if (node.isValid() &&
-            ( node.GoalDistanceEstimate(m_Start->m_UserState) <= m_Limited )
+            ( step <= m_Limited )
             ) {
             
             auto _node = new MapNode;
             _node->m_UserState = node;
+            _node->step = step + 1;
             SearchStep(_node);
         }
 
@@ -124,11 +129,12 @@ protected:
         node = UserState(x, y+1);
         
         if (node.isValid() &&
-            (node.GoalDistanceEstimate(m_Start->m_UserState) <= m_Limited )
+            ( step <= m_Limited )
             ) {
 
             auto _node = new MapNode;
             _node->m_UserState = node;
+            _node->step = step + 1;
             SearchStep(_node);
         }
 
