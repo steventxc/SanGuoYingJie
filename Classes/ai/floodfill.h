@@ -103,7 +103,7 @@ protected:
             
             auto _node = new MapNode;
             _node->m_UserState = node;
-            _node->step = step + 1;
+            _node->step = step + node.GetCost(node);
             SearchStep(_node);
         }
         
@@ -116,7 +116,7 @@ protected:
             
             auto _node = new MapNode;
             _node->m_UserState = node;
-            _node->step = step + 1;
+            _node->step = step + node.GetCost(node);
             SearchStep(_node);
         }
         
@@ -129,7 +129,7 @@ protected:
             
             auto _node = new MapNode;
             _node->m_UserState = node;
-            _node->step = step + 1;
+            _node->step = step + node.GetCost(node);
             SearchStep(_node);
         }
 
@@ -142,7 +142,7 @@ protected:
 
             auto _node = new MapNode;
             _node->m_UserState = node;
-            _node->step = step + 1;
+            _node->step = step + node.GetCost(node);
             SearchStep(_node);
         }
 

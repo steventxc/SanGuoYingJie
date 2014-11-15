@@ -61,7 +61,7 @@ public:
     
     void PrintNodeInfo();
     
-public:
+public: // for flood fill
     bool isValid();
 };
 
