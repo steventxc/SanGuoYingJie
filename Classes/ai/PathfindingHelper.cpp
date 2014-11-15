@@ -133,13 +133,17 @@ vector<Point> PathfindingHelper:: startFloodFill(const Point &coord, unsigned li
     FloodFillSearch<MapSearchNode> flood_fill;
     flood_fill.SetupWithStartStates(searchnode, limited);
 
-    vector<MapSearchNode> sets = flood_fill.getResultSet();
+    vector<MapSearchNode *> sets = flood_fill.getResultSet();
     vector<Point> points;
     
-    for (vector<MapSearchNode>::iterator itr = sets.begin(); itr != sets.end(); ++itr) {
-        points.push_back(Point((*itr).x, (*itr).y));
-        (*itr).PrintNodeInfo();
+    for (vector<MapSearchNode*>::iterator itr = sets.begin(); itr != sets.end(); ++itr) {
+        points.push_back(Point((*itr)->x, (*itr)->y));
+        (*itr)->PrintNodeInfo();
     }
+    
+    // free search nodes
+    flood_fill.FreeSolutionNodes();
+    
     
     return points;
 }
