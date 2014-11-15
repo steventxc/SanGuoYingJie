@@ -68,17 +68,25 @@ protected:
     
     void SearchStep(MapNode *userNode)
     {
-        // from back to head.
-        for (int i = m_ResultList.size()-1; i>=0; i--) {
-            if( userNode->m_UserState.IsSameState( m_ResultList[i]->m_UserState ) )
-            {
-                return;
-            }
-        }
         
         const int step = userNode->step;
         
+        for (result_iter = m_ResultList.begin(); result_iter != m_ResultList.end(); result_iter++) {
+            if ( userNode->m_UserState.IsSameState( (*result_iter)->m_UserState ) ) {
                 
+                // we use new node which have less step value
+                // instead of the one which add before.
+                if (step < (*result_iter)->step ) {
+                    m_ResultList.erase(result_iter);
+                    
+                    break;
+                }
+                else {
+                    return;
+                }
+            }
+        }
+        
 
         m_ResultList.push_back( userNode );
         
