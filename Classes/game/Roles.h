@@ -16,6 +16,16 @@ class LevelScene;
 class Roles : public cocos2d::Sprite
 {
 public:
+    
+    enum class TroopsType
+    {
+        INFANTRY,
+        CAVALRY,
+        ARCHER,
+    };
+    
+    
+public:
     /**
      * also see Sprite::create(const std::string& filename)
      */
