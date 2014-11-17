@@ -14,14 +14,15 @@
 class MapTerrain
 {
 public:
+    static const int TERRAIN_MASK = 0xffffffff;
     
     enum Terrain {
-        OBSTACLE,
-        PLAIN,
-        GRASSLAND,
-        FOREST,
-        MOUNTAINLAND,
-        BUILDING,
+        OBSTACLE        = 0x10000000,
+        PLAIN           = 0x00000001,
+        GRASSLAND       = 0x00000010,
+        FOREST          = 0x00000100,
+        MOUNTAINLAND    = 0x00001000,
+        BUILDING        = 0x00010000,
         // below terrains are impassable.
         WALL = OBSTACLE,
         WATER = OBSTACLE,
@@ -55,7 +56,7 @@ public:
     }
     
 private:
-    MapTerrain();
+    MapTerrain(){}
 };
 
 #endif /* defined(__SanGuoYingJie__MapTerrain__) */
