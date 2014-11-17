@@ -10,21 +10,13 @@
 #define __SanGuoYingJie__Roles__
 
 #include "cocos2d.h"
+#include "../data/TroopsInfo.h"
 
 class LevelScene;
 
+
 class Roles : public cocos2d::Sprite
 {
-public:
-    
-    enum class TroopsType
-    {
-        INFANTRY,
-        CAVALRY,
-        ARCHER,
-    };
-    
-    
 public:
     /**
      * also see Sprite::create(const std::string& filename)
@@ -61,13 +53,17 @@ protected:
     
     
 public:
-    bool isSelected(){ return _isSelected; }
+    bool isSelected(){ return _mIsSelected; }
     
     void setLevelScene(LevelScene* scene) {_levelScene = scene;};
     
-private:
-    bool _isSelected; // indicate this role is selected;
+    bool isPassable(unsigned mapterrain);
+    
+protected:
+    bool _mIsSelected; // indicate this role is selected;
     LevelScene *_levelScene;
+    
+    TroopsInfo::TroopsType _mTroopsType;
 
 };
 

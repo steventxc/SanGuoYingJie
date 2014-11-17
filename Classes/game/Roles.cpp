@@ -9,6 +9,7 @@
 #include "Roles.h"
 #include "../levels/LevelScene.h"
 
+
 USING_NS_CC;
 
 Roles* Roles::create(const std::string& filename)
@@ -89,7 +90,7 @@ bool Roles::initWithTexture(Texture2D *texture, const Rect& rect, bool rotated)
         
         if (rect.containsPoint(locationInNode))
         {
-            this->_isSelected = true;
+            this->_mIsSelected = true;
     
             _levelScene->setMask(this);
             
@@ -102,6 +103,13 @@ bool Roles::initWithTexture(Texture2D *texture, const Rect& rect, bool rotated)
     _eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
     
     return true;
+}
+
+bool Roles:: isPassable(unsigned mapterrain)
+{
+    unsigned terrains = TroopsInfo::getTerrainsWithType(this->_mTroopsType);
+    
+    return ( (mapterrain & terrains) == mapterrain );
 }
 
 
