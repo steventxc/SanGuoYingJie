@@ -11,6 +11,7 @@
 #include "../game/TKMap.h"
 #include "../game/Roles.h"
 #include "../ai/PathfindingHelper.h"
+#include "../data/MapTerrain.h"
 
 
 USING_NS_CC;
@@ -43,28 +44,31 @@ bool LevelScene:: init()
     do {
         
         // init level helper. REFRESH
-        _levelHelper = LevelHelper::create();
+        _levelHelper = LevelHelper::create(this, "level01.tmx");
         
         
         SpriteFrameCache::getInstance()->addSpriteFramesWithFile("move.plist", "move.pvr.ccz");
         
         
+        // init pathfinding helper
+        PathfindingHelper::getInstance()->setup(this);
+        
         // REFRESH
-        _tkmap = TKMap::create("level01.tmx");
+        _mTKMap = TKMap::create( "level01.tmx");
         
         
         
         
-        this->addChild(_tkmap, 2);
-        _tkmap->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
-        _tkmap->setPosition(Vec2(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y));
+        this->addChild(_mTKMap, 2);
+        _mTKMap->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
+        _mTKMap->setPosition(Vec2(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y));
         
         
         
-        auto masklayer = _tkmap->getLayer("mask");
+        auto masklayer = _mTKMap->getLayer("mask");
         masklayer->setVisible(false);
         
-        auto roles = _tkmap->getObjectGroup("roles");
+        auto roles = _mTKMap->getObjectGroup("roles");
         auto objs = roles->getObjects();
         
         for (auto obj : objs) {
@@ -78,7 +82,7 @@ bool LevelScene:: init()
                 CCLOG("%s",still.c_str());
                 auto zhangfei = Roles::createWithSpriteFrameName(still);
                 zhangfei->setLevelScene(this);
-                _tkmap->addChild(zhangfei, 1);
+                _mTKMap->addChild(zhangfei, 1);
                 zhangfei->setName("zhangfei");
 //                zhangfei->setAnchorPoint(Vec2::ANCHOR_BOTTOM_LEFT);
                 Point pt(o["x"].asFloat()+zhangfei->getContentSize().width / 2,
@@ -123,7 +127,7 @@ bool LevelScene:: init()
             return false;
         };
         
-        _eventDispatcher->addEventListenerWithSceneGraphPriority(_listener, _tkmap);
+        _eventDispatcher->addEventListenerWithSceneGraphPriority(_listener, _mTKMap);
         
         bCon = true;
     } while (false);
@@ -133,14 +137,14 @@ bool LevelScene:: init()
 
 void LevelScene::move(const cocos2d::Point &goal)
 {
-    Point end = _tkmap->getTileCoordByPosition(goal);
-    if (_tkmap->isObstacle(end)) {
+    Point end = _mTKMap->getTileCoordByPosition(goal);
+    if (_mTKMap->isObstacle(end)) {
         CCLOG("## this tile is OBSTACLE!");
         return;
     }
     
-    auto role = dynamic_cast<Roles*>(_tkmap->getChildByName("zhangfei"));
-    Point start = _tkmap->getTileCoordByPosition(role->getPosition());
+    auto role = dynamic_cast<Roles*>(_mTKMap->getChildByName("zhangfei"));
+    Point start = _mTKMap->getTileCoordByPosition(role->getPosition());
     
     if (start == end) {
         CCLOG("you have already there!");
@@ -162,9 +166,9 @@ void LevelScene::justdoit()
         
         _solution.erase(_solution.begin());
         
-        pot = _tkmap->getPositionByTileCoord(pot);
+        pot = _mTKMap->getPositionByTileCoord(pot);
         
-        auto role = _tkmap->getChildByName("zhangfei");
+        auto role = _mTKMap->getChildByName("zhangfei");
         
         auto move = MoveTo::create(0.1f, pot);
         auto callback = CallFunc::create(CC_CALLBACK_0(LevelScene::justdoit, this));
@@ -175,11 +179,11 @@ void LevelScene::justdoit()
 
 void LevelScene:: setMask(Sprite* role)
 {
-        Point pot = _tkmap->getTileCoordByPosition(role->getPosition());
+    Point pot = _mTKMap->getTileCoordByPosition(role->getPosition());
     
     auto tiles = PathfindingHelper::getInstance()->startFloodFill(pot, 5);
     
-    auto masklayer = _tkmap->getLayer("mask");
+    auto masklayer = _mTKMap->getLayer("mask");
     masklayer->setVisible(true);
     
     for (vector<Point>::iterator itr = tiles.begin(); itr != tiles.end(); ++itr)
@@ -205,6 +209,19 @@ void LevelScene:: setMask(Sprite* role)
 
 }
 
+
+float LevelScene:: getTerrainCost(const Point &tileCoord)
+{
+    int gid = _mTKMap->getTileGID(tileCoord);
+    unsigned type = _mTKMap->getTileTerrain(gid);
+    
+    return MapTerrain::getTerrainCost(type);
+}
+
+bool LevelScene:: isPassable(const cocos2d::Point &tileCoord)
+{
+    return !(_mTKMap->isObstacle(tileCoord));
+}
 
 
 

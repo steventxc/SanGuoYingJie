@@ -27,7 +27,7 @@ public:
     virtual bool init() override;
     
 private:
-    TKMap *_tkmap; //
+    TKMap *_mTKMap; //
     
     LevelHelper *_levelHelper;
     
@@ -39,6 +39,10 @@ private:
     
 public:
     void setMask(cocos2d::Sprite *role);
+    
+    float getTerrainCost(const cocos2d::Point &tileCoord);
+    
+    bool isPassable(const cocos2d::Point &tileCoord);
 };
 
 #endif /* defined(__SanGuoYingJie__LevelScene__) */
