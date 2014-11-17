@@ -7,7 +7,7 @@
 //
 
 #include "PathfindingHelper.h"
-#include "../game/TKMap.h"
+#include "../levels/LevelScene.h"
 #include "../data/MapTerrain.h"
 
 USING_NS_CC;
@@ -218,13 +218,13 @@ bool MapSearchNode::GetSuccessors( AStarSearch<MapSearchNode> *astarsearch, MapS
     
     MapSearchNode NewNode;
     Vec2 _point;
-    auto _map = PathfindingHelper::getInstance()->_tkmap;
+    auto _level = PathfindingHelper::getInstance()->_mLevel;
     
 	// push each possible move except allowing the search to go backwards
     
     // left
     _point.set(x-1, y);
-	if( ( !_map->isObstacle(_point) )
+	if( ( _level->isPassable(_point) )
        && !( (parent_x == x-1) && (parent_y == y) )
        )
 	{
@@ -234,7 +234,7 @@ bool MapSearchNode::GetSuccessors( AStarSearch<MapSearchNode> *astarsearch, MapS
     
     // top
     _point.set(x, y-1);
-	if( ( !_map->isObstacle(_point) )
+	if( ( _level->isPassable(_point) )
        && !( (parent_x == x) && (parent_y == y-1) )
        )
 	{
@@ -244,7 +244,7 @@ bool MapSearchNode::GetSuccessors( AStarSearch<MapSearchNode> *astarsearch, MapS
     
     // right
     _point.set(x+1, y);
-	if(( !_map->isObstacle(_point) )
+	if(( _level->isPassable(_point) )
        && !( (parent_x == x+1) && (parent_y == y) )
        )
 	{
@@ -254,7 +254,7 @@ bool MapSearchNode::GetSuccessors( AStarSearch<MapSearchNode> *astarsearch, MapS
     
     // bottom
     _point.set(x, y+1);
-	if( ( !_map->isObstacle(_point) )
+	if( ( _level->isPassable(_point) )
        && !( (parent_x == x) && (parent_y == y+1) )
        )
 	{
@@ -271,17 +271,14 @@ bool MapSearchNode::GetSuccessors( AStarSearch<MapSearchNode> *astarsearch, MapS
 
 float MapSearchNode::GetCost( MapSearchNode &successor )
 {
-    int gid = PathfindingHelper::getInstance()->_tkmap->getTileGID(Point(x, y));
-    unsigned type = PathfindingHelper::getInstance()->_tkmap->getTileTerrain(gid);
-    
-    return MapTerrain::getTerrainCost(type);
+    return PathfindingHelper::getInstance()->_mLevel->getTerrainCost(Point(x, y));
 }
 
 
 
 bool MapSearchNode:: isValid()
 {
-    return ! PathfindingHelper::getInstance()->_tkmap->isObstacle(Point(x, y));
+    return PathfindingHelper::getInstance()->_mLevel->isPassable(Point(x, y));
 }
 
 

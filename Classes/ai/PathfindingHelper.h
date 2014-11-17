@@ -14,7 +14,7 @@
 #include "floodfill.h"
 
 
-class TKMap;
+class LevelScene;
 
 class PathfindingHelper : public cocos2d::Ref
 {
@@ -23,7 +23,7 @@ public:
     
     static void destroy();
     
-    void setup(TKMap* map) { _tkmap = map; };
+    void setup(LevelScene* level) { _mLevel = level; };
     
     static vector<cocos2d::Point> startAStarSearch(const cocos2d::Point &start, const cocos2d::Point &goal);
     
@@ -35,7 +35,7 @@ protected:
     PathfindingHelper(){};
     ~PathfindingHelper(){};
     
-    TKMap* _tkmap;
+    LevelScene* _mLevel;
     
     
     friend class MapSearchNode;
