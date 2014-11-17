@@ -8,7 +8,6 @@
 
 #include "TKMap.h"
 #include "../data/MapTerrain.h"
-#include "../ai/PathfindingHelper.h"
 
 USING_NS_CC;
 using std::string;
@@ -34,9 +33,7 @@ bool TKMap:: initData(const string& tmxFile)
     
     auto terrainParser = MapTerrainParser::create(tmxFile);
     _mapTerrainInfo = terrainParser->getTerrainInfo();
-    
-    // init pathfinding helper
-    PathfindingHelper::getInstance()->setup(this);
+
     
     return true;
 }
