@@ -14,15 +14,13 @@
 class MapTerrain
 {
 public:
-    static const int TERRAIN_MASK = 0xffffffff;
-    
     enum Terrain {
-        OBSTACLE        = 0x10000000,
-        PLAIN           = 0x00000001,
-        GRASSLAND       = 0x00000010,
-        FOREST          = 0x00000100,
-        MOUNTAINLAND    = 0x00001000,
-        BUILDING        = 0x00010000,
+        OBSTACLE        = 1,
+        PLAIN           = 1<<1,
+        GRASSLAND       = 1<<2,
+        FOREST          = 1<<3,
+        MOUNTAINLAND    = 1<<4,
+        BUILDING        = 1<<5,
         // below terrains are impassable.
         WALL = OBSTACLE,
         WATER = OBSTACLE,
@@ -51,7 +49,7 @@ public:
 
             default:
                 // it means this terrain is impassable.
-                return INT_MIN;
+                return 1;
         }
     }
     
