@@ -11,7 +11,6 @@
 #include "../game/TKMap.h"
 #include "../game/Roles.h"
 #include "../ai/PathfindingHelper.h"
-#include "../data/MapTerrain.h"
 
 
 USING_NS_CC;
@@ -210,12 +209,10 @@ void LevelScene:: setMask(Sprite* role)
 }
 
 
-float LevelScene:: getTerrainCost(const Point &tileCoord)
+unsigned LevelScene:: getTerrain(const Point &tileCoord)
 {
     int gid = _mTKMap->getTileGID(tileCoord);
-    unsigned type = _mTKMap->getTileTerrain(gid);
-    
-    return MapTerrain::getTerrainCost(type);
+    return _mTKMap->getTileTerrain(gid);
 }
 
 bool LevelScene:: isPassable(const cocos2d::Point &tileCoord)
