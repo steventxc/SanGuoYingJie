@@ -105,8 +105,6 @@ unsigned TKMap:: getTileTerrain(int tileGID, experimental::TMXLayer *layer/* = n
             for(tile_it = tiles.begin(); tile_it != tiles.end(); ++tile_it)
             {
                 if (tileID == (*tile_it)->_id) {
-//                    CCLOG("key: %d, value: %s <--> %d", (*tile_it)->_id, (*tile_it)->_value.asString().c_str(), (*tile_it)->_value.asInt());
-                    
                     terraintypeid = (*tile_it)->_value.asInt();
                     break;
                 }
@@ -118,7 +116,6 @@ unsigned TKMap:: getTileTerrain(int tileGID, experimental::TMXLayer *layer/* = n
                 
                 string terrainName = types.at(terraintypeid).asString();
 //                CCLOG("terrain type name: %s", terrainName.c_str());
-                
                 return MapTerrain::getTerrainType(terrainName);
             }
             
