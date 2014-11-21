@@ -271,7 +271,9 @@ bool MapSearchNode::GetSuccessors( AStarSearch<MapSearchNode> *astarsearch, MapS
 
 float MapSearchNode::GetCost( MapSearchNode &successor )
 {
-    return PathfindingHelper::getInstance()->_mLevel->getTerrainCost(Point(x, y));
+    unsigned type = PathfindingHelper::getInstance()->_mLevel->getTerrain(Point(x, y));
+    
+    return MapTerrain::getTerrainCost(type);
 }
 
 
