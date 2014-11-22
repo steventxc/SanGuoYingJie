@@ -12,21 +12,27 @@
 #include "cocos2d.h"
 
 class Roles;
+class TKMap;
+class LevelScene;
 
 class LevelHelper : public cocos2d::Ref
 {
 public:
     
-    static LevelHelper * create();
+    static LevelHelper * create(LevelScene *scene, const std::string& tmxFile);
     
     
     std::vector<cocos2d::Point> getMovingRange(Roles *selected);
     
 protected:
-    LevelHelper();
+    LevelHelper(LevelScene *scene);
     ~LevelHelper();
     
-    bool init();
+    bool init(const std::string& tmxFile);
+    
+private:
+    LevelScene *_mLevelScene;
+    TKMap *_mTKMap;
 };
 
 #endif /* defined(__SanGuoYingJie__LevelHelper__) */

@@ -9,6 +9,7 @@
 #include "LevelHelper.h"
 #include "LevelScene.h"
 #include "../game/Roles.h"
+#include "../game/TKMap.h"
 #include "../ai/PathfindingHelper.h"
 
 USING_NS_CC;
@@ -16,10 +17,10 @@ using std::vector;
 
 
 
-LevelHelper * LevelHelper:: create()
+LevelHelper * LevelHelper:: create(LevelScene *scene, const std::string& tmxFile)
 {
-    auto helper = new LevelHelper;
-    if (helper && helper->init()) {
+    auto helper = new (std::nothrow) LevelHelper(scene);
+    if (helper && helper->init(tmxFile)) {
         helper->autorelease();
         return helper;
     }
@@ -29,10 +30,14 @@ LevelHelper * LevelHelper:: create()
 }
 
 
-bool LevelHelper::init()
+bool LevelHelper::init(const std::string& tmxFile)
 {    
     bool bCon = false;
     do {
+        
+        // REFRESH
+        _mTKMap = TKMap::create(tmxFile);
+        CC_BREAK_IF(! _mTKMap);
         
         
         bCon = true;
@@ -43,9 +48,9 @@ bool LevelHelper::init()
 }
 
 
-LevelHelper::LevelHelper()
+LevelHelper::LevelHelper(LevelScene *scene)
 {
-    
+    _mLevelScene = scene;
 }
 
 LevelHelper::~LevelHelper()
