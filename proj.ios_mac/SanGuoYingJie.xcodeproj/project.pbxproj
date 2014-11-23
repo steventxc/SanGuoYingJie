@@ -63,7 +63,6 @@
 		B0076DF11A0BA82900B39769 /* LevelScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0076DE81A0BA82900B39769 /* LevelScene.cpp */; };
 		B00D46581A1A1C86009F2D02 /* TroopsInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B00D46561A1A1C86009F2D02 /* TroopsInfo.cpp */; };
 		B02BDFE11A0DC1CA000CC860 /* level01.png in Resources */ = {isa = PBXBuildFile; fileRef = B02BDFE01A0DC1CA000CC860 /* level01.png */; };
-		B02BDFE71A10E5F8000CC860 /* LevelHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B02BDFE51A10E5F8000CC860 /* LevelHelper.cpp */; };
 		B06F47171A0BB1280002760D /* PathfindingHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B06F47151A0BB1280002760D /* PathfindingHelper.cpp */; };
 		B077765219F21ABF00F32C77 /* buildings1.png in Resources */ = {isa = PBXBuildFile; fileRef = B077764C19F21ABF00F32C77 /* buildings1.png */; };
 		B077765319F21ABF00F32C77 /* level1.png in Resources */ = {isa = PBXBuildFile; fileRef = B077764D19F21ABF00F32C77 /* level1.png */; };
@@ -275,8 +274,6 @@
 		B00D46561A1A1C86009F2D02 /* TroopsInfo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TroopsInfo.cpp; sourceTree = "<group>"; };
 		B00D46571A1A1C86009F2D02 /* TroopsInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TroopsInfo.h; sourceTree = "<group>"; };
 		B02BDFE01A0DC1CA000CC860 /* level01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = level01.png; sourceTree = "<group>"; };
-		B02BDFE51A10E5F8000CC860 /* LevelHelper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LevelHelper.cpp; sourceTree = "<group>"; };
-		B02BDFE61A10E5F8000CC860 /* LevelHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelHelper.h; sourceTree = "<group>"; };
 		B02BDFE91A124C21000CC860 /* floodfill.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = floodfill.h; sourceTree = "<group>"; };
 		B06F470E1A0BABF00002760D /* fsa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fsa.h; sourceTree = "<group>"; };
 		B06F470F1A0BABF00002760D /* stlastar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stlastar.h; sourceTree = "<group>"; };
@@ -510,8 +507,6 @@
 			children = (
 				B0076DE81A0BA82900B39769 /* LevelScene.cpp */,
 				B0076DE91A0BA82900B39769 /* LevelScene.h */,
-				B02BDFE51A10E5F8000CC860 /* LevelHelper.cpp */,
-				B02BDFE61A10E5F8000CC860 /* LevelHelper.h */,
 			);
 			path = levels;
 			sourceTree = "<group>";
@@ -763,7 +758,6 @@
 				B0076DEE1A0BA82900B39769 /* MapTerrainParser.cpp in Sources */,
 				B0076DF01A0BA82900B39769 /* Roles.cpp in Sources */,
 				B0076DEB1A0BA82900B39769 /* MapTerrain.cpp in Sources */,
-				B02BDFE71A10E5F8000CC860 /* LevelHelper.cpp in Sources */,
 				B06F47171A0BB1280002760D /* PathfindingHelper.cpp in Sources */,
 				B00D46581A1A1C86009F2D02 /* TroopsInfo.cpp in Sources */,
 				DF0B44801A0CAB1A00A72AE0 /* TKMap.cpp in Sources */,
