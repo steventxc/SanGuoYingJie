@@ -138,5 +138,10 @@ bool TKMap:: isObstacle(const cocos2d::Point &tileCoord)
 }
 
 
+/*
+ create a new layer for terrain instead, or keeping on use this mode?????????
+ */
+
+
 
 
