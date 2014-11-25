@@ -243,4 +243,9 @@
    eJwrYWBgKBnFo3gUj+JRPIpHGAYARrjLAQ==
   </data>
  </layer>
+ <layer name="terrain" width="28" height="16">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjIJRMApGHgAABwAAAQ==
+  </data>
+ </layer>
 </map>
