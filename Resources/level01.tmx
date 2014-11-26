@@ -222,6 +222,39 @@
   <tile id="461" terrain="3,3,3,3"/>
   <tile id="462" terrain="3,3,3,3"/>
  </tileset>
+ <tileset firstgid="465" name="terrain" tilewidth="32" tileheight="32" spacing="2" margin="2">
+  <image source="terrain.png" width="128" height="128"/>
+  <tile id="0">
+   <properties>
+    <property name="terrain" value="plain"/>
+   </properties>
+  </tile>
+  <tile id="1">
+   <properties>
+    <property name="terrain" value="grassland"/>
+   </properties>
+  </tile>
+  <tile id="2">
+   <properties>
+    <property name="terrain" value="forest"/>
+   </properties>
+  </tile>
+  <tile id="3">
+   <properties>
+    <property name="terrain" value="obstacle"/>
+   </properties>
+  </tile>
+  <tile id="4">
+   <properties>
+    <property name="terrain" value="buildings"/>
+   </properties>
+  </tile>
+  <tile id="6">
+   <properties>
+    <property name="terrain" value="mountainland"/>
+   </properties>
+  </tile>
+ </tileset>
  <layer name="background" width="28" height="16">
   <data encoding="base64" compression="zlib">
    eJwt0XWQllUUB+BvaekGRWHp7pZeWLpLQrq7Q7pz6e7uRrq7yxFFYAAV0DFQYhSUfBjeP575zdw5954z54aFQqFoRCcGMYlFbOLwEXGJR3wSkJBEJCYJSUlGclKQklSk5mM+IQ2fkpZ0hJOeDGQkE5nJQlaykZ0c5CQXuclDXvKRnwIUpBCFKUJRilGcEpSkFKUpQ1nKEUF5KhBJRSpRmSpUpRrVqUFNalGbOtSlHvVpQEMa0ZgmNOVLmtGcFrSkFa1pQ1va0Z4OdKQTnelCV7rRnR70pBe96UM/+jOAgXzFIAYzhKEMYzgjGMkoRjOGsYxjPBOYyCQmE8UUpjKN6cxkFrOZw1zmMZ8FLGQRi1nCUpaxnBWsZBWrWcNa1rGeDWxkE5vZwja2s4OdfM0udrOHvexjPwcChzjMEZKEhULH5HFOcJJTnOYMZznHeS5wictc4SrX+CZ491uu8x3fc4MfuMktbgf97si73ONHfuJn7vOAh/zCr/zG7/zBnzziL/7mMU94yrPgf/7hX57zgv/4n5e84jVveEvILGFEIzoxiEVs4oR9mPW9eEEmICGJSBycJSUZyUlBSlKROqh7X5MmyM9ISzrCSU9GMpGZLGQNarOTg5zkIneQeclHfgpQkEIUpkhwtxjF+ZwSlKQUpSlLOSIoTwUiqUglKlOFqlSjOjWoSS1qU4e61KM+DWjIFzSiMU1oSjOa04KWtKI1bWhLO9rTgTF0CvbWha50ozs96EkvetOHvvSjPwMYyCAGM4ShDGM4IxjJKEYHvcYyjvFMYCKTmEwUU5jKNKYzg5nMYjZzmMd8FrCQRSxmCUtZxnJWsJJVrGYNa1nHejawkU1sZgtb2cZ2drCTXexmD3vZx34OcJBDHOYIRznGcU5wklOc5gxnOcd5LnCRS1zmCld5Bz2vy0Y=
@@ -238,14 +271,14 @@
   <object gid="282" x="512" y="256" visible="0"/>
   <object gid="265" x="96" y="320" visible="0"/>
  </objectgroup>
- <layer name="mask" width="28" height="16">
+ <layer name="mask" width="28" height="16" visible="0">
   <data encoding="base64" compression="zlib">
    eJwrYWBgKBnFo3gUj+JRPIpHGAYARrjLAQ==
   </data>
  </layer>
  <layer name="terrain" width="28" height="16">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjIJRMApGHgAABwAAAQ==
+   eJytlIEOhiAIhOX93w51vk5r/8+yi4Nc3sZWE/04I0r5pialDPk9V+GxSzNPHY7Kldc2cCOeyj1vjh08YzLOqSFP9moMUi+y9J87YC8701vLWLM83+YZa7Do8M78ZN8IeR3OHAGH+cmU5fdg/Q1LF+uJWE14PdazyNvxPzIWzhl2/9lcwn5nYfstd4XXYU8Tf7Ygq8qzh9mdMm/mK5rVGS9je3PjLS+Sx6wfWGccY1e1QA==
   </data>
  </layer>
 </map>
