@@ -221,6 +221,8 @@
   <tile id="460" terrain="3,3,3,3"/>
   <tile id="461" terrain="3,3,3,3"/>
   <tile id="462" terrain="3,3,3,3"/>
+  
+  
  </tileset>
  <tileset firstgid="465" name="terrain" tilewidth="32" tileheight="32" spacing="2" margin="2">
   <image source="terrain.png" width="128" height="128"/>
@@ -265,20 +267,20 @@
    eJxjYBgFo2D4gIk0Mvc0jcwlBawbaAegAauBdsAQBaPhNngAALAoAn8=
   </data>
  </layer>
- <objectgroup name="roles" visible="0">
+ <objectgroup name="roles">
   <object name="zhangfei" x="640" y="320"/>
   <object name="guanyu" gid="282" x="640" y="352"/>
   <object gid="282" x="512" y="256" visible="0"/>
   <object gid="265" x="96" y="320" visible="0"/>
  </objectgroup>
- <layer name="mask" width="28" height="16" visible="0">
+ <layer name="mask" width="28" height="16">
   <data encoding="base64" compression="zlib">
    eJwrYWBgKBnFo3gUj+JRPIpHGAYARrjLAQ==
   </data>
  </layer>
  <layer name="terrain" width="28" height="16">
   <data encoding="base64" compression="zlib">
-   eJytlIEOhiAIhOX93w51vk5r/8+yi4Nc3sZWE/04I0r5pialDPk9V+GxSzNPHY7Kldc2cCOeyj1vjh08YzLOqSFP9moMUi+y9J87YC8701vLWLM83+YZa7Do8M78ZN8IeR3OHAGH+cmU5fdg/Q1LF+uJWE14PdazyNvxPzIWzhl2/9lcwn5nYfstd4XXYU8Tf7Ygq8qzh9mdMm/mK5rVGS9je3PjLS+Sx6wfWGccY1e1QA==
+   eJy1lNEOgCAIRfP/vw7U9TvZFhtDLlraw30ohHNhjJKOoyzqbKKmHIgerbI0jx0Ob+SMeML6iydMxOHn7U4eARYp3mlyUU0vNmLpf6ze67jnQVTNN+rHsiI/ti4ZhtfTDMPLieJ1IVfm+cbPaDbID6d+b2c9vpVw0J2JvHnzsPuOJLzygVdNTkn+bbGsnPodRjNFvZFTM9LodkT78QdPM2U+X1m3LnQucsg=
   </data>
  </layer>
 </map>
