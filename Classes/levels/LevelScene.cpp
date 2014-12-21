@@ -43,7 +43,7 @@ bool LevelScene:: init()
     do {
         
         // init level helper. REFRESH
-        _levelHelper = LevelHelper::create(this, "level01.tmx");
+//        _levelHelper = LevelHelper::create(this, "level01.tmx");
         
         
         SpriteFrameCache::getInstance()->addSpriteFramesWithFile("move.plist", "move.pvr.ccz");
@@ -66,6 +66,10 @@ bool LevelScene:: init()
         
         auto masklayer = _mTKMap->getLayer("mask");
         masklayer->setVisible(false);
+        
+        auto terrainLayer = _mTKMap->getLayer("terrain");
+        CC_BREAK_IF(!terrainLayer);
+//        terrainLayer->setVisible(false);
         
         auto roles = _mTKMap->getObjectGroup("roles");
         auto objs = roles->getObjects();

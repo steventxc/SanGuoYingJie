@@ -221,8 +221,6 @@
   <tile id="460" terrain="3,3,3,3"/>
   <tile id="461" terrain="3,3,3,3"/>
   <tile id="462" terrain="3,3,3,3"/>
-  
-  
  </tileset>
  <tileset firstgid="465" name="terrain" tilewidth="32" tileheight="32" spacing="2" margin="2">
   <image source="terrain.png" width="128" height="128"/>
