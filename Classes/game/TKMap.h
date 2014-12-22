@@ -10,12 +10,11 @@
 #define __SanGuoYingJie__TKMap__
 
 #include "cocos2d.h"
-#include "MapTerrainParser.h"
+#include "../data/TerrainInfo.h"
 
 
 class TKMap : public cocos2d::experimental::TMXTiledMap
 {
-    cocos2d::Vector<LayerTerrainInfo *> _mapTerrainInfo; // map terrain info, help us to get path.
     
 protected:
     
@@ -47,14 +46,18 @@ public:
     /**
      *  check if this tile is obstacle. out of map is as obstacle also.
      */
-    bool isObstacle(const cocos2d::Point &tileCoord);
+//    bool isObstacle(const cocos2d::Point &tileCoord);
     
     /**
      *  get terrain info of the tile which belonged to the layer.
      *  return value see MapTerrain::Terrain class.
      *  default layer's name is "background"
      */
-    unsigned getTileTerrain(int tileGID, cocos2d::experimental::TMXLayer *layer = nullptr);
+//    unsigned getTileTerrain(int tileGID, cocos2d::experimental::TMXLayer *layer = nullptr);
+    
+    
+public:
+    TerrainInfo::Terrain getTileTerrain(const cocos2d::Point& tileCoord);
     
 };
 

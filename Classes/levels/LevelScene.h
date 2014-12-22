@@ -10,13 +10,17 @@
 #define __SanGuoYingJie__LevelScene__
 
 #include "cocos2d.h"
+#include "../data/TerrainInfo.h"
 
 class TKMap;
 
-class LevelHelper;
-
-class LevelScene : public cocos2d::Layer {
-//    friend class MapHelper;
+class LevelScene : public cocos2d::Layer
+{
+    TKMap *_mTKMap; //
+    
+    std::vector<cocos2d::Point> _solution;
+    
+    cocos2d::experimental::TMXLayer *_terrainLayer;
     
 public:
     // there's no 'id' in cpp, so we recommend returning the class instance pointer
@@ -27,11 +31,6 @@ public:
     virtual bool init() override;
     
 private:
-    TKMap *_mTKMap; //
-    
-    LevelHelper *_levelHelper;
-    
-    std::vector<cocos2d::Point> _solution;
     
     void move(const cocos2d::Point &tileCoord);
     
@@ -40,7 +39,7 @@ private:
 public:
     void setMask(cocos2d::Sprite *role);
     
-    unsigned getTerrain(const cocos2d::Point &tileCoord);
+    TerrainInfo::Terrain getTerrain(const cocos2d::Point &tileCoord);
     
     bool isPassable(const cocos2d::Point &tileCoord);
 };

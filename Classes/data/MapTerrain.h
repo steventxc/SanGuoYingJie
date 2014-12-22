@@ -22,9 +22,9 @@ public:
         MOUNTAINLAND    = 1<<4,
         BUILDING        = 1<<5,
         // below terrains are impassable.
-        WALL = OBSTACLE,
-        WATER = OBSTACLE,
-        CLIFF = OBSTACLE,
+        WALL            = 1<<6,
+        WATER           = 1<<7,
+        CLIFF           = 1<<8,
     };
     
     static int getTerrainType(std::string &name);

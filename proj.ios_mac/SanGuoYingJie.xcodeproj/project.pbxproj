@@ -57,8 +57,6 @@
 		50EF62A217ECD613001EB2F8 /* Icon-29.png in Resources */ = {isa = PBXBuildFile; fileRef = 50EF62A017ECD613001EB2F8 /* Icon-29.png */; };
 		50EF62A317ECD613001EB2F8 /* Icon-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 50EF62A117ECD613001EB2F8 /* Icon-50.png */; };
 		B0076DEA1A0BA82900B39769 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0076DD71A0BA82900B39769 /* AppDelegate.cpp */; };
-		B0076DEB1A0BA82900B39769 /* MapTerrain.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0076DDA1A0BA82900B39769 /* MapTerrain.cpp */; };
-		B0076DEE1A0BA82900B39769 /* MapTerrainParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0076DE11A0BA82900B39769 /* MapTerrainParser.cpp */; };
 		B0076DF01A0BA82900B39769 /* Roles.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0076DE51A0BA82900B39769 /* Roles.cpp */; };
 		B0076DF11A0BA82900B39769 /* LevelScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0076DE81A0BA82900B39769 /* LevelScene.cpp */; };
 		B00D46581A1A1C86009F2D02 /* TroopsInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B00D46561A1A1C86009F2D02 /* TroopsInfo.cpp */; };
@@ -79,6 +77,8 @@
 		D44C6210132DFF4E0009C878 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620F132DFF4E0009C878 /* AudioToolbox.framework */; };
 		D6B0611B1803AB670077942B /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6B0611A1803AB670077942B /* CoreMotion.framework */; };
 		DF0B44801A0CAB1A00A72AE0 /* TKMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DF0B447E1A0CAB1A00A72AE0 /* TKMap.cpp */; };
+		DF951E771A47C62D002E51BD /* fake.png in Resources */ = {isa = PBXBuildFile; fileRef = DF951E761A47C62D002E51BD /* fake.png */; };
+		DF951E7C1A47FB62002E51BD /* TerrainInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DF951E7A1A47FB62002E51BD /* TerrainInfo.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -264,10 +264,6 @@
 		50EF62A117ECD613001EB2F8 /* Icon-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-50.png"; sourceTree = "<group>"; };
 		B0076DD71A0BA82900B39769 /* AppDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AppDelegate.cpp; sourceTree = "<group>"; };
 		B0076DD81A0BA82900B39769 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		B0076DDA1A0BA82900B39769 /* MapTerrain.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MapTerrain.cpp; sourceTree = "<group>"; };
-		B0076DDB1A0BA82900B39769 /* MapTerrain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapTerrain.h; sourceTree = "<group>"; };
-		B0076DE11A0BA82900B39769 /* MapTerrainParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MapTerrainParser.cpp; sourceTree = "<group>"; };
-		B0076DE21A0BA82900B39769 /* MapTerrainParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapTerrainParser.h; sourceTree = "<group>"; };
 		B0076DE51A0BA82900B39769 /* Roles.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Roles.cpp; sourceTree = "<group>"; };
 		B0076DE61A0BA82900B39769 /* Roles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Roles.h; sourceTree = "<group>"; };
 		B0076DE81A0BA82900B39769 /* LevelScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LevelScene.cpp; sourceTree = "<group>"; };
@@ -296,6 +292,9 @@
 		D6B0611A1803AB670077942B /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/CoreMotion.framework; sourceTree = DEVELOPER_DIR; };
 		DF0B447E1A0CAB1A00A72AE0 /* TKMap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TKMap.cpp; sourceTree = "<group>"; };
 		DF0B447F1A0CAB1A00A72AE0 /* TKMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKMap.h; sourceTree = "<group>"; };
+		DF951E761A47C62D002E51BD /* fake.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fake.png; sourceTree = "<group>"; };
+		DF951E7A1A47FB62002E51BD /* TerrainInfo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TerrainInfo.cpp; sourceTree = "<group>"; };
+		DF951E7B1A47FB62002E51BD /* TerrainInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TerrainInfo.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -451,6 +450,7 @@
 		78C7DDAA14EBA5050085D0C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				DF951E761A47C62D002E51BD /* fake.png */,
 				B0487DA81A46CFC800902107 /* terrain.png */,
 				B02BDFE01A0DC1CA000CC860 /* level01.png */,
 				B077764C19F21ABF00F32C77 /* buildings1.png */,
@@ -484,8 +484,8 @@
 		B0076DD91A0BA82900B39769 /* data */ = {
 			isa = PBXGroup;
 			children = (
-				B0076DDA1A0BA82900B39769 /* MapTerrain.cpp */,
-				B0076DDB1A0BA82900B39769 /* MapTerrain.h */,
+				DF951E7A1A47FB62002E51BD /* TerrainInfo.cpp */,
+				DF951E7B1A47FB62002E51BD /* TerrainInfo.h */,
 				B00D46561A1A1C86009F2D02 /* TroopsInfo.cpp */,
 				B00D46571A1A1C86009F2D02 /* TroopsInfo.h */,
 			);
@@ -495,8 +495,6 @@
 		B0076DDC1A0BA82900B39769 /* game */ = {
 			isa = PBXGroup;
 			children = (
-				B0076DE11A0BA82900B39769 /* MapTerrainParser.cpp */,
-				B0076DE21A0BA82900B39769 /* MapTerrainParser.h */,
 				B0076DE51A0BA82900B39769 /* Roles.cpp */,
 				B0076DE61A0BA82900B39769 /* Roles.h */,
 				DF0B447E1A0CAB1A00A72AE0 /* TKMap.cpp */,
@@ -717,6 +715,7 @@
 				50EF629817ECD46A001EB2F8 /* Icon-80.png in Resources */,
 				5087E78417EB970100C73F5D /* Icon-57.png in Resources */,
 				5087E77E17EB970100C73F5D /* Default.png in Resources */,
+				DF951E771A47C62D002E51BD /* fake.png in Resources */,
 				50EF629717ECD46A001EB2F8 /* Icon-58.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -759,9 +758,8 @@
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
-				B0076DEE1A0BA82900B39769 /* MapTerrainParser.cpp in Sources */,
+				DF951E7C1A47FB62002E51BD /* TerrainInfo.cpp in Sources */,
 				B0076DF01A0BA82900B39769 /* Roles.cpp in Sources */,
-				B0076DEB1A0BA82900B39769 /* MapTerrain.cpp in Sources */,
 				B06F47171A0BB1280002760D /* PathfindingHelper.cpp in Sources */,
 				B00D46581A1A1C86009F2D02 /* TroopsInfo.cpp in Sources */,
 				DF0B44801A0CAB1A00A72AE0 /* TKMap.cpp in Sources */,

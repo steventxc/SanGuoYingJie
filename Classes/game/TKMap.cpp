@@ -31,8 +31,8 @@ bool TKMap:: initData(const string& tmxFile)
         return false;
     }
     
-    auto terrainParser = MapTerrainParser::create(tmxFile);
-    _mapTerrainInfo = terrainParser->getTerrainInfo();
+//    auto terrainParser = MapTerrainParser::create(tmxFile);
+//    _mapTerrainInfo = terrainParser->getTerrainInfo();
 
     
     return true;
@@ -80,8 +80,8 @@ int TKMap:: getTileGID(const Point& tileCoord, experimental::TMXLayer *layer/* =
 }
 
 
-unsigned TKMap:: getTileTerrain(int tileGID, experimental::TMXLayer *layer/* = nullptr */)
-{
+//unsigned TKMap:: getTileTerrain(int tileGID, experimental::TMXLayer *layer/* = nullptr */)
+/*{
     CCASSERT(tileGID >= 0, "tile id can not less than 0!");
     
     if (nullptr == layer) {
@@ -136,12 +136,34 @@ bool TKMap:: isObstacle(const cocos2d::Point &tileCoord)
     
     return (MapTerrain::Terrain::OBSTACLE == getTileTerrain(gid));
 }
-
+*/
 
 /*
  create a new layer for terrain instead, or keeping on use this mode?????????
  do it
  */
+
+
+TerrainInfo::Terrain TKMap:: getTileTerrain(const cocos2d::Point& tileCoord)
+{
+    int gid = this->getLayer("terrain")->getTileGIDAt(tileCoord);
+    auto perp = this->getPropertiesForGID(gid);
+    
+    if (!perp.isNull())
+    {
+        auto terrain = perp.asValueMap();
+        
+        auto iter = terrain.find("terrain");
+        if (iter != terrain.end())
+        {
+            string tername(iter->second.asString());
+            CCLOG("terrain: %s", tername.c_str());
+            return TerrainInfo::getTerrainType(tername);
+        }
+    }
+    
+    return TerrainInfo::Terrain::UNKNOWN;
+}
 
 
 

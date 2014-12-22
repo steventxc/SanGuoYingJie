@@ -7,7 +7,6 @@
 //
 
 #include "LevelScene.h"
-#include "LevelHelper.h"
 #include "../game/TKMap.h"
 #include "../game/Roles.h"
 #include "../ai/PathfindingHelper.h"
@@ -63,13 +62,18 @@ bool LevelScene:: init()
         _mTKMap->setPosition(Vec2(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y));
         
         
+        auto backgroundLayer = _mTKMap->getLayer("background");
+        backgroundLayer->setVisible(false);
+        
         
         auto masklayer = _mTKMap->getLayer("mask");
         masklayer->setVisible(false);
         
-        auto terrainLayer = _mTKMap->getLayer("terrain");
-        CC_BREAK_IF(!terrainLayer);
+        _terrainLayer = _mTKMap->getLayer("terrain");
+        CC_BREAK_IF(!_terrainLayer);
 //        terrainLayer->setVisible(false);
+        
+        
         
         auto roles = _mTKMap->getObjectGroup("roles");
         auto objs = roles->getObjects();
@@ -85,7 +89,7 @@ bool LevelScene:: init()
                 CCLOG("%s",still.c_str());
                 auto zhangfei = Roles::createWithSpriteFrameName(still);
                 zhangfei->setLevelScene(this);
-                _mTKMap->addChild(zhangfei, 1);
+                _mTKMap->addChild(zhangfei, 10);
                 zhangfei->setName("zhangfei");
 //                zhangfei->setAnchorPoint(Vec2::ANCHOR_BOTTOM_LEFT);
                 Point pt(o["x"].asFloat()+zhangfei->getContentSize().width / 2,
@@ -141,10 +145,10 @@ bool LevelScene:: init()
 void LevelScene::move(const cocos2d::Point &goal)
 {
     Point end = _mTKMap->getTileCoordByPosition(goal);
-    if (_mTKMap->isObstacle(end)) {
-        CCLOG("## this tile is OBSTACLE!");
-        return;
-    }
+//    if (_mTKMap->isObstacle(end)) {
+//        CCLOG("## this tile is OBSTACLE!");
+//        return;
+//    }
     
     auto role = dynamic_cast<Roles*>(_mTKMap->getChildByName("zhangfei"));
     Point start = _mTKMap->getTileCoordByPosition(role->getPosition());
@@ -154,12 +158,29 @@ void LevelScene::move(const cocos2d::Point &goal)
         return;
     }
     
+    /*
     CCLOG("start point tile coord [%f, %f]", start.x, start.y);
     CCLOG("end point tile coord [%f, %f]", end.x, end.y);
     
     _solution = PathfindingHelper::getInstance()->startAStarSearch(start, end);
     
     justdoit();
+    */
+    
+    _mTKMap->getTileTerrain(end);
+    
+//    auto perp =  _mTKMap->getPropertiesForGID(_terrainLayer->getTileGIDAt(end));
+//    
+//    if (!perp.isNull()) {
+//        auto terrain = perp.asValueMap();
+//        
+//        auto iter = terrain.find("terrain");
+//        if (iter != terrain.end()) {
+//            CCLOG("terrain: %s", iter->second.asString().c_str());
+//            
+//        }
+//    }
+    
 }
 
 void LevelScene::justdoit()
@@ -213,15 +234,14 @@ void LevelScene:: setMask(Sprite* role)
 }
 
 
-unsigned LevelScene:: getTerrain(const Point &tileCoord)
+TerrainInfo::Terrain LevelScene:: getTerrain(const Point &tileCoord)
 {
-    int gid = _mTKMap->getTileGID(tileCoord);
-    return _mTKMap->getTileTerrain(gid);
+    return _mTKMap->getTileTerrain(tileCoord);
 }
 
 bool LevelScene:: isPassable(const cocos2d::Point &tileCoord)
 {
-    return !(_mTKMap->isObstacle(tileCoord));
+    return TerrainInfo::isObstacle(_mTKMap->getTileTerrain(tileCoord));
 }
 
 
