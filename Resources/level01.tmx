@@ -246,7 +246,7 @@
   </tile>
   <tile id="4">
    <properties>
-    <property name="terrain" value="buildings"/>
+    <property name="terrain" value="building"/>
    </properties>
   </tile>
   <tile id="6">
@@ -255,6 +255,14 @@
    </properties>
   </tile>
  </tileset>
+ <tileset firstgid="474" name="fake" tilewidth="32" tileheight="32">
+  <image source="fake.png" width="32" height="32"/>
+ </tileset>
+ <layer name="fake" width="28" height="16" opacity="0.81">
+  <data encoding="base64" compression="zlib">
+   eJy7xcjAcGsUj+JRPIpH8SgeYRgAsoB/UA==
+  </data>
+ </layer>
  <layer name="background" width="28" height="16">
   <data encoding="base64" compression="zlib">
    eJwt0XWQllUUB+BvaekGRWHp7pZeWLpLQrq7Q7pz6e7uRrq7yxFFYAAV0DFQYhSUfBjeP575zdw5954z54aFQqFoRCcGMYlFbOLwEXGJR3wSkJBEJCYJSUlGclKQklSk5mM+IQ2fkpZ0hJOeDGQkE5nJQlaykZ0c5CQXuclDXvKRnwIUpBCFKUJRilGcEpSkFKUpQ1nKEUF5KhBJRSpRmSpUpRrVqUFNalGbOtSlHvVpQEMa0ZgmNOVLmtGcFrSkFa1pQ1va0Z4OdKQTnelCV7rRnR70pBe96UM/+jOAgXzFIAYzhKEMYzgjGMkoRjOGsYxjPBOYyCQmE8UUpjKN6cxkFrOZw1zmMZ8FLGQRi1nCUpaxnBWsZBWrWcNa1rGeDWxkE5vZwja2s4OdfM0udrOHvexjPwcChzjMEZKEhULH5HFOcJJTnOYMZznHeS5wictc4SrX+CZ491uu8x3fc4MfuMktbgf97si73ONHfuJn7vOAh/zCr/zG7/zBnzziL/7mMU94yrPgf/7hX57zgv/4n5e84jVveEvILGFEIzoxiEVs4oR9mPW9eEEmICGJSBycJSUZyUlBSlKROqh7X5MmyM9ISzrCSU9GMpGZLGQNarOTg5zkIneQeclHfgpQkEIUpkhwtxjF+ZwSlKQUpSlLOSIoTwUiqUglKlOFqlSjOjWoSS1qU4e61KM+DWjIFzSiMU1oSjOa04KWtKI1bWhLO9rTgTF0CvbWha50ozs96EkvetOHvvSjPwMYyCAGM4ShDGM4IxjJKEYHvcYyjvFMYCKTmEwUU5jKNKYzg5nMYjZzmMd8FrCQRSxmCUtZxnJWsJJVrGYNa1nHejawkU1sZgtb2cZ2drCTXexmD3vZx34OcJBDHOYIRznGcU5wklOc5gxnOcd5LnCRS1zmCld5Bz2vy0Y=
