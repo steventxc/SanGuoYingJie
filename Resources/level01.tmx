@@ -223,35 +223,45 @@
   <tile id="462" terrain="3,3,3,3"/>
  </tileset>
  <tileset firstgid="465" name="terrain" tilewidth="32" tileheight="32" spacing="2" margin="2">
-  <image source="terrain.png" width="128" height="128"/>
+  <image source="terrain.png" width="104" height="104"/>
   <tile id="0">
    <properties>
-    <property name="terrain" value="plain"/>
+    <property name="terrain" value="water"/>
    </properties>
   </tile>
   <tile id="1">
    <properties>
-    <property name="terrain" value="grassland"/>
+    <property name="terrain" value="mountain"/>
    </properties>
   </tile>
   <tile id="2">
    <properties>
-    <property name="terrain" value="forest"/>
+    <property name="terrain" value="grassland"/>
    </properties>
   </tile>
   <tile id="3">
    <properties>
-    <property name="terrain" value="obstacle"/>
+    <property name="terrain" value="wall"/>
    </properties>
   </tile>
   <tile id="4">
+   <properties>
+    <property name="terrain" value="forest"/>
+   </properties>
+  </tile>
+  <tile id="5">
    <properties>
     <property name="terrain" value="building"/>
    </properties>
   </tile>
   <tile id="6">
    <properties>
-    <property name="terrain" value="mountainland"/>
+    <property name="terrain" value="plain"/>
+   </properties>
+  </tile>
+  <tile id="7">
+   <properties>
+    <property name="terrain" value="cliff"/>
    </properties>
   </tile>
  </tileset>
@@ -284,9 +294,9 @@
    eJwrYWBgKBnFo3gUj+JRPIpHGAYARrjLAQ==
   </data>
  </layer>
- <layer name="terrain" width="28" height="16">
+ <layer name="terrain" width="28" height="16" opacity="0.49">
   <data encoding="base64" compression="zlib">
-   eJy1lNEOgCAIRfP/vw7U9TvZFhtDLlraw30ohHNhjJKOoyzqbKKmHIgerbI0jx0Ob+SMeML6iydMxOHn7U4eARYp3mlyUU0vNmLpf6ze67jnQVTNN+rHsiI/ti4ZhtfTDMPLieJ1IVfm+cbPaDbID6d+b2c9vpVw0J2JvHnzsPuOJLzygVdNTkn+bbGsnPodRjNFvZFTM9LodkT78QdPM2U+X1m3LnQucsg=
+   eJy11OEKhSAMBeB6/6dr86qPU8IG47DpKO+PA6ayTyvt53H0DeEnv0maZIfVpZZnsoxdkn96aO321OTAGn0k84vkjUXGs7FWMx4ZjyY1vbGVZfvYtNVrTm0yqfAc7QctDHoVakbGbD+rlMV4/WhxYk4m6kXrwX82u79sbG1t4z1TAo/PeH34LnEuWiP9hVfBupy6nqUenvfst7b7mt3Vnre6p6JztttDkz9YIzeJzHgB
   </data>
  </layer>
 </map>
