@@ -30,13 +30,25 @@ TerrainInfo::Terrain TerrainInfo:: getTerrainType(string &name)
     {
         return TerrainInfo::Terrain::FOREST;
     }
-    else if (name == "MOUNTAINLAND")
+    else if (name == "MOUNTAIN")
     {
-        return TerrainInfo::Terrain::MOUNTAINLAND;
+        return TerrainInfo::Terrain::MOUNTAIN;
     }
     else if (name == "BUILDING")
     {
         return TerrainInfo::Terrain::BUILDING;
+    }
+    else if (name == "WALL")
+    {
+        return TerrainInfo::Terrain::WALL;
+    }
+    else if (name == "WATER")
+    {
+        return TerrainInfo::Terrain::WATER;
+    }
+    else if (name == "CLIFF")
+    {
+        return TerrainInfo::Terrain::CLIFF;
     }
     else
     {
@@ -57,17 +69,17 @@ int TerrainInfo:: getTerrainCost(TerrainInfo::Terrain &terrain)
             return 1;
             
         case Terrain::FOREST:
-            return 1;
+            return 2;
             
-        case Terrain::MOUNTAINLAND:
-            return 1;
+        case Terrain::MOUNTAIN:
+            return 2;
             
         case Terrain::BUILDING:
-            return 1;
+            return 2;
             
         default:
             // it means this terrain is impassable.
-            return 1;
+            return 100;
     }
 }
 

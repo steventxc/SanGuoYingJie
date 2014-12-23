@@ -7,7 +7,7 @@
 //
 
 #include "TroopsInfo.h"
-#include "MapTerrain.h"
+#include "TerrainInfo.h"
 
 
 
@@ -16,20 +16,32 @@ unsigned TroopsInfo:: getTerrainsWithType(TroopsType type)
     switch (type) {
         case TroopsType::INFANTRY :
             // 00011111;
-            return MapTerrain::Terrain::PLAIN |  MapTerrain::Terrain::GRASSLAND
-            | MapTerrain::Terrain::MOUNTAINLAND | MapTerrain::Terrain::BUILDING
-            | MapTerrain::Terrain::FOREST;
+            return (
+                    static_cast<int>(TerrainInfo::Terrain::PLAIN)  |
+                    static_cast<int>(TerrainInfo::Terrain::GRASSLAND) |
+                    static_cast<int>(TerrainInfo::Terrain::MOUNTAIN) |
+                    static_cast<int>(TerrainInfo::Terrain::BUILDING) |
+                    static_cast<int>(TerrainInfo::Terrain::FOREST)
+                    );
             
         case TroopsType::CAVALRY :
             // 00011011
-            return MapTerrain::Terrain::PLAIN |  MapTerrain::Terrain::GRASSLAND
-            | MapTerrain::Terrain::MOUNTAINLAND | MapTerrain::Terrain::BUILDING;
+            return (
+                    static_cast<int>(TerrainInfo::Terrain::PLAIN) |
+                    static_cast<int>(TerrainInfo::Terrain::GRASSLAND) |
+                    static_cast<int>(TerrainInfo::Terrain::MOUNTAIN) |
+                    static_cast<int>(TerrainInfo::Terrain::BUILDING)
+                    );
             
         case TroopsType::ARCHER :
             // 00011111;
-            return MapTerrain::Terrain::PLAIN |  MapTerrain::Terrain::GRASSLAND
-            | MapTerrain::Terrain::MOUNTAINLAND | MapTerrain::Terrain::BUILDING
-            | MapTerrain::Terrain::FOREST;
+            return (
+                    static_cast<int>(TerrainInfo::Terrain::PLAIN) |
+                    static_cast<int>(TerrainInfo::Terrain::GRASSLAND) |
+                    static_cast<int>(TerrainInfo::Terrain::MOUNTAIN) |
+                    static_cast<int>(TerrainInfo::Terrain::BUILDING) |
+                    static_cast<int>(TerrainInfo::Terrain::FOREST)
+                    );
             
         default:
             break;

@@ -17,15 +17,15 @@ public:
     enum class Terrain
     {
         UNKNOWN         = -1,
-        PLAIN           = 1<<1,
-        GRASSLAND       = 1<<2,
-        FOREST          = 1<<3,
-        MOUNTAINLAND    = 1<<4,
-        BUILDING        = 1<<5,
+        PLAIN           = 1,
+        GRASSLAND       = 1<<1,
+        FOREST          = 1<<2,
+        MOUNTAIN        = 1<<3,
+        BUILDING        = 1<<4,
         // below terrains are impassable.
-        WALL            = 1<<6,
-        WATER           = 1<<7,
-        CLIFF           = 1<<8,
+        WALL            = 1<<5,
+        WATER           = 1<<6,
+        CLIFF           = 1<<7,
     };
     
     static Terrain getTerrainType(std::string &name);
@@ -35,11 +35,11 @@ public:
     
     inline static bool isObstacle(Terrain terrain)
     {
-        return ( terrain >= Terrain::WALL );
+        return ( static_cast<int>(terrain) >= static_cast<int>(Terrain::WALL) );
     }
     
 private:
     TerrainInfo(){}
 };
 
-#endif /* defined(__SanGuoYingJie__MapTerrain__) */
+#endif /* defined(__SanGuoYingJie__TerrainInfo__) */
