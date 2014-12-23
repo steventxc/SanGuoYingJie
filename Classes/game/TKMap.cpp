@@ -7,7 +7,7 @@
 //
 
 #include "TKMap.h"
-#include "../data/MapTerrain.h"
+
 
 USING_NS_CC;
 using std::string;

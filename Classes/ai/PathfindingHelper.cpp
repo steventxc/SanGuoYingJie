@@ -8,7 +8,7 @@
 
 #include "PathfindingHelper.h"
 #include "../levels/LevelScene.h"
-#include "../data/MapTerrain.h"
+#include "../data/TerrainInfo.h"
 
 USING_NS_CC;
 
@@ -108,22 +108,22 @@ vector<Point> PathfindingHelper:: startAStarSearch(const cocos2d::Point &start, 
     //    CCLOG("SearchSteps : %d\n", SearchSteps);
     
     astarsearch.EnsureMemoryFreed();
-	
+    
     return vector<Point>();
 }
 
 
 /*
-void flood_fill(int x,int y,int color)
-{
-    area[x][y]=color;
-    if(x>0&&area[x-1][y]==0)flood_fill(x-1,y,color);
-    if(y>0&&area[x][y-1]==0)flood_fill(x,y-1,color);
-    if(x<MAX_X&&area[x+1][y]==0)flood_fill(x+1,y,color);
-    if(y<MAX_Y&&area[x][y+1]==0)flood_fill(x,y+1,color);
-    
-}
-*/
+ void flood_fill(int x,int y,int color)
+ {
+ area[x][y]=color;
+ if(x>0&&area[x-1][y]==0)flood_fill(x-1,y,color);
+ if(y>0&&area[x][y-1]==0)flood_fill(x,y-1,color);
+ if(x<MAX_X&&area[x+1][y]==0)flood_fill(x+1,y,color);
+ if(y<MAX_Y&&area[x][y+1]==0)flood_fill(x,y+1,color);
+ 
+ }
+ */
 
 vector<Point> PathfindingHelper:: startFloodFill(const Point &coord, unsigned limited)
 {
@@ -132,7 +132,7 @@ vector<Point> PathfindingHelper:: startFloodFill(const Point &coord, unsigned li
     
     FloodFillSearch<MapSearchNode> flood_fill;
     flood_fill.SetupWithStartStates(searchnode, limited);
-
+    
     vector<MapSearchNode *> sets = flood_fill.getResultSet();
     vector<Point> points;
     
@@ -220,47 +220,47 @@ bool MapSearchNode::GetSuccessors( AStarSearch<MapSearchNode> *astarsearch, MapS
     Vec2 _point;
     auto _level = PathfindingHelper::getInstance()->_mLevel;
     
-	// push each possible move except allowing the search to go backwards
+    // push each possible move except allowing the search to go backwards
     
     // left
     _point.set(x-1, y);
-	if( ( _level->isPassable(_point) )
+    if( ( _level->isPassable(_point) )
        && !( (parent_x == x-1) && (parent_y == y) )
        )
-	{
-		NewNode = MapSearchNode( _point );
-		astarsearch->AddSuccessor( NewNode );
-	}
+    {
+        NewNode = MapSearchNode( _point );
+        astarsearch->AddSuccessor( NewNode );
+    }
     
     // top
     _point.set(x, y-1);
-	if( ( _level->isPassable(_point) )
+    if( ( _level->isPassable(_point) )
        && !( (parent_x == x) && (parent_y == y-1) )
        )
-	{
-		NewNode = MapSearchNode( _point );
-		astarsearch->AddSuccessor( NewNode );
-	}
+    {
+        NewNode = MapSearchNode( _point );
+        astarsearch->AddSuccessor( NewNode );
+    }
     
     // right
     _point.set(x+1, y);
-	if(( _level->isPassable(_point) )
+    if(( _level->isPassable(_point) )
        && !( (parent_x == x+1) && (parent_y == y) )
        )
-	{
-		NewNode = MapSearchNode( _point );
-		astarsearch->AddSuccessor( NewNode );
-	}
+    {
+        NewNode = MapSearchNode( _point );
+        astarsearch->AddSuccessor( NewNode );
+    }
     
     // bottom
     _point.set(x, y+1);
-	if( ( _level->isPassable(_point) )
+    if( ( _level->isPassable(_point) )
        && !( (parent_x == x) && (parent_y == y+1) )
        )
-	{
-		NewNode = MapSearchNode( _point );
-		astarsearch->AddSuccessor( NewNode );
-	}
+    {
+        NewNode = MapSearchNode( _point );
+        astarsearch->AddSuccessor( NewNode );
+    }
     
     return true;
 }
@@ -271,9 +271,9 @@ bool MapSearchNode::GetSuccessors( AStarSearch<MapSearchNode> *astarsearch, MapS
 
 float MapSearchNode::GetCost( MapSearchNode &successor )
 {
-    unsigned type = PathfindingHelper::getInstance()->_mLevel->getTerrain(Point(x, y));
+    auto terrain = PathfindingHelper::getInstance()->_mLevel->getTerrain(Point(x, y));
     
-    return MapTerrain::getTerrainCost(type);
+    return TerrainInfo::getTerrainCost(terrain);
 }
 
 

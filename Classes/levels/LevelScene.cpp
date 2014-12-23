@@ -158,28 +158,16 @@ void LevelScene::move(const cocos2d::Point &goal)
         return;
     }
     
-    /*
+    
     CCLOG("start point tile coord [%f, %f]", start.x, start.y);
     CCLOG("end point tile coord [%f, %f]", end.x, end.y);
     
     _solution = PathfindingHelper::getInstance()->startAStarSearch(start, end);
     
     justdoit();
-    */
     
-    _mTKMap->getTileTerrain(end);
     
-//    auto perp =  _mTKMap->getPropertiesForGID(_terrainLayer->getTileGIDAt(end));
-//    
-//    if (!perp.isNull()) {
-//        auto terrain = perp.asValueMap();
-//        
-//        auto iter = terrain.find("terrain");
-//        if (iter != terrain.end()) {
-//            CCLOG("terrain: %s", iter->second.asString().c_str());
-//            
-//        }
-//    }
+//    _mTKMap->getTileTerrain(end);
     
 }
 
@@ -241,7 +229,12 @@ TerrainInfo::Terrain LevelScene:: getTerrain(const Point &tileCoord)
 
 bool LevelScene:: isPassable(const cocos2d::Point &tileCoord)
 {
-    return TerrainInfo::isObstacle(_mTKMap->getTileTerrain(tileCoord));
+    if (_mTKMap->isValidTileCoord(tileCoord))
+    {
+        return ( ! TerrainInfo::isObstacle(_mTKMap->getTileTerrain(tileCoord)) );
+    }
+    
+    return false;
 }
 
 
