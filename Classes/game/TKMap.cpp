@@ -31,9 +31,6 @@ bool TKMap:: initData(const string& tmxFile)
         return false;
     }
     
-//    auto terrainParser = MapTerrainParser::create(tmxFile);
-//    _mapTerrainInfo = terrainParser->getTerrainInfo();
-
     
     return true;
 }
@@ -70,79 +67,6 @@ Point TKMap:: getPositionByTileCoord(const Point &tileCoord)
     return Point(x, y);
 }
 
-int TKMap:: getTileGID(const Point& tileCoord, experimental::TMXLayer *layer/* = nullptr */)
-{
-    if (nullptr == layer) {
-        layer = this->getLayer("background");
-    }
-    
-    return layer->getTileGIDAt(tileCoord);
-}
-
-
-//unsigned TKMap:: getTileTerrain(int tileGID, experimental::TMXLayer *layer/* = nullptr */)
-/*{
-    CCASSERT(tileGID >= 0, "tile id can not less than 0!");
-    
-    if (nullptr == layer) {
-        layer = this->getLayer("background");
-    }
-    
-    // convert the tile global id to local layer tile id.
-    const int tileID = tileGID - layer->getTileSet()->_firstGid;
-    const string tilesetName = layer->getTileSet()->_name;
-    
-    for (decltype(_mapTerrainInfo.begin()) iter = _mapTerrainInfo.begin();
-         iter != _mapTerrainInfo.end(); ++iter)
-    {
-        if ((*iter)->getName() == tilesetName) {
-            
-            auto tiles = (*iter)->getTileTerrainInfo();
-            
-            int terraintypeid = -1;
-            
-            decltype(tiles.find(nullptr)) tile_it;
-            for(tile_it = tiles.begin(); tile_it != tiles.end(); ++tile_it)
-            {
-                if (tileID == (*tile_it)->_id) {
-                    terraintypeid = (*tile_it)->_value.asInt();
-                    break;
-                }
-            }
-            
-            // find the tile terrain info.
-            if (tile_it != tiles.end()) {
-                auto types = (*iter)->getTerrainTypes();
-                
-                string terrainName = types.at(terraintypeid).asString();
-//                CCLOG("terrain type name: %s", terrainName.c_str());
-                return MapTerrain::getTerrainType(terrainName);
-            }
-            
-            break;
-        }
-    }
-    
-    return MapTerrain::Terrain::PLAIN;
-}
-
-bool TKMap:: isObstacle(const cocos2d::Point &tileCoord)
-{
-    // when this position is out of map, we assume it is a obstacle.
-    if (!isValidTileCoord(tileCoord))
-        return true;
-    
-    const int gid = getTileGID(tileCoord);
-    
-    return (MapTerrain::Terrain::OBSTACLE == getTileTerrain(gid));
-}
-*/
-
-/*
- create a new layer for terrain instead, or keeping on use this mode?????????
- do it
- */
-
 
 TerrainInfo::Terrain TKMap:: getTileTerrain(const cocos2d::Point& tileCoord)
 {
@@ -163,6 +87,22 @@ TerrainInfo::Terrain TKMap:: getTileTerrain(const cocos2d::Point& tileCoord)
     }
     
     return TerrainInfo::Terrain::UNKNOWN;
+}
+
+
+bool TKMap:: onTouchBegan(Touch* touch, Event* event)
+{
+    return false;
+}
+
+void TKMap:: onTouchMoved(Touch* touch, Event* event)
+{
+    
+}
+
+void TKMap:: onTouchEnded(Touch* touch, Event* event)
+{
+     
 }
 
 

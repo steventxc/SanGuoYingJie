@@ -20,6 +20,10 @@ protected:
     
     bool initData(const std::string& tmxFile);
     
+    bool onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event);
+    void onTouchMoved(cocos2d::Touch* touch, cocos2d::Event* event);
+    void onTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event);
+    
 public:
     static TKMap * create(const std::string& tmxFile);
     
@@ -34,29 +38,14 @@ public:
     cocos2d::Point getPositionByTileCoord(const cocos2d::Point &tileCoord);
     
     /**
-     *
-     */
-    int getTileGID(const cocos2d::Point& tileCoord, cocos2d::experimental::TMXLayer *layer = nullptr);
-    
-    /**
      * check if this node in the map scope.
      */
     bool isValidTileCoord(const cocos2d::Point &tileCoord);
     
     /**
-     *  check if this tile is obstacle. out of map is as obstacle also.
+     *  get terrain info at specific coordinate.
+     *  return value see TerrainInfo::Terrain class.
      */
-//    bool isObstacle(const cocos2d::Point &tileCoord);
-    
-    /**
-     *  get terrain info of the tile which belonged to the layer.
-     *  return value see MapTerrain::Terrain class.
-     *  default layer's name is "background"
-     */
-//    unsigned getTileTerrain(int tileGID, cocos2d::experimental::TMXLayer *layer = nullptr);
-    
-    
-public:
     TerrainInfo::Terrain getTileTerrain(const cocos2d::Point& tileCoord);
     
 };
