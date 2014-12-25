@@ -145,10 +145,10 @@ bool LevelScene:: init()
 void LevelScene::move(const cocos2d::Point &goal)
 {
     Point end = _mTKMap->getTileCoordByPosition(goal);
-//    if (_mTKMap->isObstacle(end)) {
-//        CCLOG("## this tile is OBSTACLE!");
-//        return;
-//    }
+    if (!isPassable(end)) {
+        CCLOG("## this tile is OBSTACLE!");
+        return;
+    }
     
     auto role = dynamic_cast<Roles*>(_mTKMap->getChildByName("zhangfei"));
     Point start = _mTKMap->getTileCoordByPosition(role->getPosition());
